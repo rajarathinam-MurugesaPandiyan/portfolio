@@ -44,7 +44,7 @@ export default function Services() {
             <div className={styles.service_text}>Services</div>
             <div className={styles.services_des}>
                 Explore my web and app services, from user interface and experience by
-                coding and testing. Let's craft exceptional digital experiences
+                coding and testing. Lets craft exceptional digital experiences
                 together.
             </div>
 

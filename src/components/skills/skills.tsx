@@ -6,7 +6,6 @@ import ts from "../../images/ts.png"
 import go from "../../images/go.png"
 import flutter from "../../images/flutter.svg"
 import reactIcons from "../../images/react.png"
-import nextJs from "../../images/favicon.png";
 import node from '../../images/node.png'
 import git from '../../images/git.png'
 import firebase from '../../images/firebase.png'
@@ -45,7 +44,7 @@ let skills: SkillStruct[] = [
     },
     {
         skill: "Next",
-        imageUrl: nextJs,
+        imageUrl: reactIcons,
     },
     {
         skill: "Node",
@@ -79,8 +78,8 @@ export default function Skills() {
                 gained knowledge in both frontend and backend Technologies
             </div>
             <div className={styles.overall_grid}>
-                {skills.map((e) => (
-                    <div className={styles.grid_item}>
+                {skills.map((e , i) => (
+                    <div key={i} className={styles.grid_item}>
                         <Image
                             draggable="false"
                             className={styles.js}

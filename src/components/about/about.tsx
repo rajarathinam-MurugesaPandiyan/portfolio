@@ -15,14 +15,14 @@ export default function About() {
     <div className={styles.about_main}>
       <div className={styles.about_text}>About Me</div>
       <div className={styles.myself}>
-        I'm a software developer skilled in Dart, JavaScript, Golang. I build
+        Im a software developer skilled in Dart, JavaScript, Golang. I build
         mobile apps for both Android and Ios using Flutter , dynamic web
         applications using React , Next js. Connect with me on GitHub and
         LinkedIn!
       </div>
       <div className={styles.stats_main}>
-        {stats.map((e) => (
-          <div className={styles.stats_content}>
+        {stats.map((e , i) => (
+          <div key={i} className={styles.stats_content}>
             <p className={styles.stats_value}>{e.value}+</p>
             {e.names}
           </div>

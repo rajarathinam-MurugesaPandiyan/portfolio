@@ -9,12 +9,12 @@ export default function Intro() {
       <div className={styles.content_main}>
         <div className={styles.left_content}>
           <p className={styles.role}>Associate Software Engineer</p>
-          <span className={styles.hi}>Hi There , I'm</span>
+          <span className={styles.hi}>Hi There , Im</span>
           <span className={styles.name}>Rajarathinam</span>
           <div style={{ width: "300px" }}>
             <p className={styles.role}>
               Welcome to my portfolio of captivating digital experiences.
-              Explore my work and let's create something extraordinary together.
+              Explore my work and lets create something extraordinary together.
             </p>
           </div>
           <div className={styles.button_grp}>
