@@ -1,0 +1,50 @@
+.service_main {
+    width: 100vw;
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.service_text {
+    width: 100vw;
+    font-size: 35px;
+    font-weight: 500;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+}
+
+.services_des {
+    text-align: center;
+    font-weight: 200;
+    font-size: 1rem;
+    color: black;
+    width: 70vw;
+    text-align: center;
+
+}
+
+.service_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85vw;
+    height: 40vh;
+
+}
+
+.service_names {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.service_single {
+    width: 20vw;
+    height: 20vh;
+    cursor: pointer;
+ 
+}

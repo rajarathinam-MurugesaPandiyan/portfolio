@@ -1,0 +1,54 @@
+.about_main {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #1F1F1F;
+}
+
+.about_text {
+  width: 100vw;
+  font-size: 35px;
+  font-weight: 500;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #1F1F1F;
+}
+
+.myself {
+  font-weight: 200;
+  font-size: 1rem;
+  color: white;
+  background-color: #1F1F1F;
+  width: 70vw;
+  text-align: center;
+}
+
+.stats_main {
+  text-align: center;
+  width: 90vw;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1F1F1F;
+}
+
+.stats_content {
+  background-color: #1F1F1F;
+  color: #ffd4d0;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.stats_value {
+  background-color: #1F1F1F;
+  color: #ffd4d0;
+  font-weight: 700;
+  font-size: 4.5rem;
+}
