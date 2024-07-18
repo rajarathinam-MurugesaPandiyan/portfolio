@@ -4,6 +4,8 @@ import Services from "@/components/services/service";
 import PortFolioHeader from "@/components/header/header";
 import Skills from "@/components/skills/skills";
 import Social from "@/components/social/social";
+import Contact from "@/components/contact/contact";
+import Footer from "@/components/footer/footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Services></Services>
       <Social></Social>
       <Skills></Skills>
+      <Contact></Contact>
+      <Footer></Footer>
 
     </div>
   );
