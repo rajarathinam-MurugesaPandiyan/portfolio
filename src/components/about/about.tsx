@@ -12,7 +12,7 @@ let stats: Stats[] = [
 ];
 export default function About() {
   return (
-    <div className={styles.about_main}>
+    <div id="About" className={styles.about_main}>
       <div className={styles.about_text}>About Me</div>
       <div className={styles.myself}>
         Im a software developer skilled in Dart, JavaScript, Golang. I build

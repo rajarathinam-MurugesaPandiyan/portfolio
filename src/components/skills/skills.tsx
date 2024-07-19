@@ -70,7 +70,7 @@ let skills: SkillStruct[] = [
 
 export default function Skills() {
   return (
-    <div className={styles.skills_main}>
+    <div id="Skills" className={styles.skills_main}>
       <div className={styles.skills_text}>Skills</div>
       <div className={styles.skills_des}>
         {

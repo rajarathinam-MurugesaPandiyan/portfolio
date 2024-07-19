@@ -40,7 +40,7 @@ let serviceConstants: ServiceStruct[] = [
 
 export default function Services() {
     return (
-        <div className={styles.service_main}>
+        <div id="Services" className={styles.service_main}>
             <div className={styles.service_text}>Services</div>
             <div className={styles.services_des}>
                 Explore my web and app services, from user interface and experience by

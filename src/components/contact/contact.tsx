@@ -8,7 +8,7 @@ import mailIcon from '../../images/email-file.gif'
 
 export default function Contact() {
     return (
-        <div className={styles.contact_main}>
+        <div id='Connect' className={styles.contact_main}>
             <div className={styles.form}>
                 <div className={styles.form_left}>
                     <p className={styles.get_in_touch}>Get In Touch</p>

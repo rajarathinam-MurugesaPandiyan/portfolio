@@ -32,7 +32,7 @@ const socialConstants: SocialStruct[] = [
 
 export default function Social() {
   return (
-    <div className={styles.social_main}>
+    <div id="Social" className={styles.social_main}>
       <div className={styles.social_head}>Social</div>
       <div className={styles.social_des}>
         Im a Content Creator in YT to educate people , Blogger in Medium and
