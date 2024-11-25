@@ -1,94 +1,98 @@
 .intro_main {
-    width: 100vw;
-    height: 60vh;
-    background-color: #ffd4d0;
+  width: 100vw;
+  height: 60vh;
+  background-color: #ffd4d0;
 }
 
 .content_main {
-    width: 100vw;
-    background-color: #ffd4d0;
-    height: 50vh;
-    display: flex;
-    align-items: center;
+  width: 100vw;
+  background-color: #ffd4d0;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .left_content {
-    margin-top: 20vh;
-    text-align: center;
-    width: 50vw;
-    background-color: #ffd4d0;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin-top: 20vh;
+  text-align: center;
+  width: 50vw;
+  background-color: #ffd4d0;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .right_content {
-    margin-top: 20vh;
-    width: 50vw;
-    height: 50vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background-color: #ffd4d0;
+  margin-top: 20vh;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #ffd4d0;
 }
 
 .role {
-    font-weight: 200;
-    font-size: 1rem;
-    background-color: #ffd4d0;
+  font-weight: 200;
+  font-size: 1rem;
+  background-color: #ffd4d0;
 }
 
 .name {
-    font-size: 2.3rem;
-    font-weight: 700;
-    background-color: #ffd4d0;
-
-}
-
-.hi {
-    font-size: 2.3rem;
-    font-weight: 700;
-    background-color: #ffd4d0;
-}
-
-.content_main {
-    background-color: #ffd4d0;
+  font-size: 3rem;
+  font-weight: 700;
+  background-color: #ffd4d0;
 }
 
 .button_grp {
-    margin-top: 20px;
-    background-color: #ffd4d0;
+  margin-top: 20px;
+  width: 80vw;
+  background-color: #ffd4d0;
 }
 
 .hire_me {
-    height: 40px;
-    width: 100px;
-    background-color: #1F1F1F;
-    color: white;
-    border: none;
-    border-radius: 2px;
+  height: 40px;
+  width: 100px;
+  background-color: #1f1f1f;
+  color: white;
+  border: none;
+  border-radius: 2px;
 }
 
 .hire_me:hover {
-    cursor: pointer;
-    color: #1F1F1F;
-    background-color: white;
+  cursor: pointer;
+  color: #1f1f1f;
+  background-color: white;
 }
 
-.skills{
-    height: 40px;
-    width: 100px;
-    background-color: #1F1F1F;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    margin-left: 10px;
+.skills {
+  height: 40px;
+  width: 100px;
+  background-color: #1f1f1f;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin-left: 10px;
 }
 
 .skills:hover {
-    cursor: pointer;
-    color: #1F1F1F;
-    background-color: white;
+  cursor: pointer;
+  color: #1f1f1f;
+  background-color: white;
+}
+
+@media (max-width: 1000px) {
+  .right_content {
+    display: none;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+  .left_content{
+    width: 100vw;
+  }
 }

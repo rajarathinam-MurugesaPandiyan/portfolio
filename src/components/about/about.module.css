@@ -1,11 +1,11 @@
 .about_main {
   width: 100vw;
-  height: 50vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
 }
 
 .about_text {
@@ -17,14 +17,14 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
 }
 
 .myself {
   font-weight: 200;
   font-size: 1rem;
   color: white;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   width: 70vw;
   text-align: center;
 }
@@ -32,23 +32,28 @@
 .stats_main {
   text-align: center;
   width: 90vw;
-  height: 30vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
 }
 
 .stats_content {
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   color: #ffd4d0;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
 .stats_value {
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   color: #ffd4d0;
   font-weight: 700;
   font-size: 4.5rem;
+}
+
+@media (max-width: 700px) {
+  .stats_main {
+    flex-direction: column;
+  }
 }

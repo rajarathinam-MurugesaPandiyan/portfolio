@@ -13,11 +13,11 @@ export default function Home() {
        <PortFolioHeader></PortFolioHeader>
       <Intro></Intro>
       <About></About>
-      <Services></Services>
+      {/* <Services></Services>
       <Social></Social>
       <Skills></Skills>
       <Contact></Contact>
-      <Footer></Footer>
+      <Footer></Footer> */}
 
     </div>
   );

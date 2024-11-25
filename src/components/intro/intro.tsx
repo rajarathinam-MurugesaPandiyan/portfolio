@@ -30,9 +30,8 @@ export default function Intro() {
     <div className={styles.intro_main}>
       <div className={styles.content_main}>
         <div className={styles.left_content}>
+          <span className={styles.name}>Rajarathinam M</span>
           <p className={styles.role}>Associate Software Engineer</p>
-          <span className={styles.hi}>Hi There , Im</span>
-          <span className={styles.name}>Rajarathinam</span>
           <div style={{ width: "300px" }}>
             <p className={styles.role}>
               Welcome to my portfolio of captivating digital experiences.
@@ -42,7 +41,6 @@ export default function Intro() {
           <div className={styles.button_grp}>
             <button className={styles.hire_me} onClick={handleOpenFile} >
               Hire Me
-
             </button>
             <button className={styles.skills} onClick={scrollToTargetAdjusted}>
               Skills

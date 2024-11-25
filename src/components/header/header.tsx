@@ -1,35 +1,31 @@
 "use client";
+import { useRouter } from 'next/navigation'
 import styles from "./header.module.css";
-
-let navigation_items: string[] = ["About", "Services", "Social", "Connect"];
-
-function scrollToTargetAdjusted(name: string) {
-    var element = document.getElementById(name);
-    var headerOffset = 85;
-    // scroll to your element
-    element?.scrollIntoView(true);
-    var offsetPosition = window.scrollY - headerOffset;
-
-    window.scroll({
-        top: offsetPosition,
-        behavior: "smooth",
-    });
-}
-
-
+import { navigation_items } from '@/constants/constants';
+import MenuOutlined from '@ant-design/icons/lib/icons/MenuOutlined';
 
 export default function PortFolioHeader() {
+    const router = useRouter()
+
+
+    function navigation(name: string) {
+        router.push(`/${name}`)
+    }
+
     return (
         <div className={styles.header_main}>
             <div className={styles.header}>
                 <div>
-                    <p className={styles.logo}>Rajarathinam</p>
+                    <p className={styles.logo}>{"🆁"}</p>
+                </div>
+                <div className={styles.menuIcon}>
+                    <MenuOutlined width={200} height={200} />
                 </div>
                 <div className={styles.navigation}>
                     {navigation_items.map((e, i) => (
                         <div
                             key={i}
-                            onClick={(es) => scrollToTargetAdjusted(e)}
+                            onClick={(es) => navigation(e)}
                             className={styles.navigation_item}
                         >
                             {e}
