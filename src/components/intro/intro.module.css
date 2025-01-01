@@ -1,12 +1,12 @@
 .intro_main {
   width: 100vw;
   height: 60vh;
-  background-color: #ffd4d0;
+  background-color: #282c33;
 }
 
 .content_main {
   width: 100vw;
-  background-color: #ffd4d0;
+  background-color: #282c33;
   height: 50vh;
   display: flex;
   align-items: center;
@@ -15,9 +15,8 @@
 
 .left_content {
   margin-top: 20vh;
-  text-align: center;
   width: 50vw;
-  background-color: #ffd4d0;
+  background-color: #282c33;
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -32,31 +31,42 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background-color: #ffd4d0;
+  background-color: #282c33;
 }
 
 .role {
-  font-weight: 200;
-  font-size: 1rem;
-  background-color: #ffd4d0;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #c778dd;
+  margin-right: 10px;
+}
+.contents {
+  width: 30vw;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.little_intro{
+  color: white;
 }
 
 .name {
-  font-size: 3rem;
+  font-size: 1.7em;
   font-weight: 700;
-  background-color: #ffd4d0;
+  color: white;
+  margin-right: 10px;
 }
 
 .button_grp {
   margin-top: 20px;
   width: 80vw;
-  background-color: #ffd4d0;
+  background-color: #282c33;
 }
 
 .hire_me {
   height: 40px;
   width: 100px;
-  background-color: #1f1f1f;
   color: white;
   border: none;
   border-radius: 2px;
@@ -70,29 +80,36 @@
 
 .skills {
   height: 40px;
-  width: 100px;
-  background-color: #1f1f1f;
+  width: 200px;
+  font-weight: 500;
+  background-color: #282c33;
   color: white;
-  border: none;
-  border-radius: 2px;
+  border: 1px #c778dd solid;
   margin-left: 10px;
 }
 
 .skills:hover {
   cursor: pointer;
-  color: #1f1f1f;
-  background-color: white;
+  color: #282c33;
+  border: 1px #282c33 solid;
+  background-color: #c778dd;
 }
 
 @media (max-width: 1000px) {
   .right_content {
     display: none;
   }
+  .contents{
+    width: 80vw;
+  }
 
   .name {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
-  .left_content{
+  .role{
+    font-size: 1.2rem;
+  }
+  .left_content {
     width: 100vw;
   }
 }

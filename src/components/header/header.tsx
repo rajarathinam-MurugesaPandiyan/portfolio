@@ -2,7 +2,9 @@
 import { useRouter } from 'next/navigation'
 import styles from "./header.module.css";
 import { navigation_items } from '@/constants/constants';
-import MenuOutlined from '@ant-design/icons/lib/icons/MenuOutlined';
+import Hastag from '../hashtag/hastag';
+import Image from 'next/image';
+import menu from '@/images/menu.svg';
 
 export default function PortFolioHeader() {
     const router = useRouter()
@@ -15,11 +17,16 @@ export default function PortFolioHeader() {
     return (
         <div className={styles.header_main}>
             <div className={styles.header}>
-                <div>
-                    <p className={styles.logo}>{"🆁"}</p>
+                <div className={styles.logo}>
+                    <Hastag logo='<<' />  {"Raja"}
                 </div>
                 <div className={styles.menuIcon}>
-                    <MenuOutlined width={200} height={200} />
+                    <Image
+                        draggable="false"
+                        className={styles.profile_pic}
+                        src={menu}
+                        alt="Picture of the author"
+                    ></Image>
                 </div>
                 <div className={styles.navigation}>
                     {navigation_items.map((e, i) => (
@@ -28,7 +35,7 @@ export default function PortFolioHeader() {
                             onClick={(es) => navigation(e)}
                             className={styles.navigation_item}
                         >
-                            {e}
+                            <Hastag logo='#' /> {e}
                         </div>
                     ))}
                 </div>

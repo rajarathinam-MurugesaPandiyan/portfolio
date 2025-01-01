@@ -1,5 +1,5 @@
 .header_main {
-  background-color: #ffd4d0;
+  background-color: #282c33;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .header {
-  background-color: #ffd4d0;
+  background-color: #282c33;
   width: 90vw;
   display: flex;
   align-items: center;
@@ -17,10 +17,11 @@
 }
 
 .navigation_item {
-  background-color: #ffd4d0;
+  background-color: #282c33;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
+  color: #abb2bf;
 }
 
 .navigation_item:hover {
@@ -32,15 +33,18 @@
   height: 10vh;
   display: flex;
   align-items: center;
-  background-color: #ffd4d0;
+  background-color: #282c33;
   justify-content: space-evenly;
 }
 
 .logo {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
-  background-color: #ffd4d0;
+  background-color: #282c33;
+  color: white;
+  cursor: pointer;
 }
+
 
 .menuIcon {
   display: none;
@@ -53,6 +57,7 @@
 
   .menuIcon {
     display: block;
-    background-color: #ffd4d0;
+
+    background-color: #282c33;
   }
 }
