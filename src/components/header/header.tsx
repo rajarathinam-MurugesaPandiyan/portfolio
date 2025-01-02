@@ -18,7 +18,7 @@ export default function PortFolioHeader() {
         <div className={styles.header_main}>
             <div className={styles.header}>
                 <div className={styles.logo}>
-                    <Hastag logo='<<' />  {"Raja"}
+                    <Hastag logo='<<' />  {"Raja"} <Hastag logo='>>' />
                 </div>
                 <div className={styles.menuIcon}>
                     <Image
