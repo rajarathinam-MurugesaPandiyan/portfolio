@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import styles from "./intro.module.css";
-import profilePic from "../../images/me.png";
+import logoMaker from "@/images/Logo.svg";
+import dotImage from '@/images/Dots.svg';
 
 function scrollToTargetAdjusted() {
   var element = document.getElementById("Skills");
@@ -17,9 +18,9 @@ function scrollToTargetAdjusted() {
 }
 
 function handleOpenFile() {
-  const link = document.createElement('a');
-  link.href = '/resume.pdf'; // Path to your PDF file
-  link.download = 'resume.pdf'; // Desired name for the downloaded file
+  const link = document.createElement("a");
+  link.href = "/resume.pdf"; // Path to your PDF file
+  link.download = "resume.pdf"; // Desired name for the downloaded file
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -30,40 +31,47 @@ export default function Intro() {
     <div className={styles.intro_main}>
       <div className={styles.content_main}>
         <div className={styles.left_content}>
-
           <div className={styles.contents}>
             <div>
               <span className={styles.name}>I'm Rajarathinam</span>
               <span className={styles.role}>Software Development Engineer</span>
-              <span className={styles.name}>
-                and
-              </span>
+              <span className={styles.name}>and</span>
               <span className={styles.role}>Content Creator</span>
             </div>
             <br />
             <div>
               <span className={styles.little_intro}>
-                I built websites , mobile apps , and do some content creations based on coding
+                I built websites , mobile apps , and do some content creations
+                based on coding
               </span>
             </div>
             <br />
-
             <button className={styles.skills} onClick={scrollToTargetAdjusted}>
               Contact Me !!
             </button>
-
+          </div>
+        </div>
+        <div className={styles.right_content}>
+          <div className={styles.image_holder}>
+            <div className={styles.logo_container}>
+              <Image
+                draggable="false"
+                className={styles.profile_pic}
+                src={logoMaker}
+                alt="Picture of the author"
+              />
+            </div>
+            <div className={styles.dotImage_container}>
+              <Image
+                draggable="false"
+                className={styles.profile_pic}
+                src={dotImage}
+                alt="Picture of the author"
+              />
+            </div>
 
           </div>
 
-        </div>
-        <div className={styles.right_content}>
-          {/* <Image
-            draggable="false"
-            className={styles.profile_pic}
-            src={profilePic}
-        
-            alt="Picture of the author"
-          /> */}
         </div>
       </div>
     </div>

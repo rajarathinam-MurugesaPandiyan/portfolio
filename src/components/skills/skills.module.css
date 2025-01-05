@@ -1,57 +1,129 @@
 .skills_main {
-    width: 100vw;
-    height: 100vh;
-    background-color: #1F1F1F;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+  width: 80vw;
+  margin-left: 10vw;
 }
 
 .skills_text {
-    color: #ffd4d0;
-    background-color: #1F1F1F;
-    font-size: 35px;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: white;
+  font-size: 35px;
+  height: 10vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills_body {
+  margin-top: 5vh;
+}
+.skill_style {
+  color: white;
+  font-size: 35px;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+}
+.border {
+  width: 20vw;
+  border: 1px #c778dd98 solid;
+  margin-left: 50px;
 }
 
-.skills_des{
+.skills_des {
+  width: 80vw;
+  background-color: #282c33;
+  font-weight: 200;
+  color: #282c33;
+  text-align: center;
+}
+
+.skills_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.js {
+  border-radius: 50px;
+}
+
+/* Grid container */
+.grid_container {
+  display: grid;
+  gap: 50px; /* Space between cards */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 20px;
+  justify-items: center;
+}
+
+.view_all {
+  color: #abb2bf;
+}
+
+.view_all:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.grid_item {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #282c33;
+  cursor: pointer;
+}
+
+/* Card styling */
+.card {
+  background: #282c33;
+  color: white;
+  border: 2px solid #abb2bf;
+  /* padding: 20px; */
+  cursor: pointer;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  height: 300px;
+  width: 100%; /* Ensures the card adjusts to the grid column width */
+  max-width: 300px; /* Ensures cards don't exceed their intended size */
+}
+.card:hover {
+  border: 2px solid white;
+}
+
+.card_body {
+  height: 200px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.skills {
+  font-size: 1.5rem;
+  color: white;
+  background-color: #282c33;
+  margin-left: 20px;
+}
+.skill_desc {
+  text-align: start;
+  font-size: 0.9rem;
+}
+
+.card_header {
+  border-bottom: 2px solid #abb2bf;
+  padding: 10px;
+  height: 70px;
+  width: 100%; /* Ensures the card adjusts to the grid column width */
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .skills_text {
     width: 80vw;
-    background-color: #1F1F1F;
-    font-weight: 200;
-    color: #ffd4d0;
-    text-align: center;
-    
-}
-
-.js{
-    border-radius: 10px;
-}
-
-.overall_grid {
-    width: 90vw;
-    background-color: #1F1F1F;
-    height: 70vh;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 50px; 
-}
-
-.grid_item{
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #1F1F1F;
-    cursor: pointer;
-}
-
-.skills{
-    color: #ffd4d0;
-    background-color: #1F1F1F;
+  }
 }

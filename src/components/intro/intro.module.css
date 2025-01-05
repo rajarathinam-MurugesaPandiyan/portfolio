@@ -29,9 +29,27 @@
   width: 50vw;
   height: 50vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   background-color: #282c33;
+}
+.image_holder {
+  height: 30vh;
+  width: 30vw;
+  /* background-color: #c778dd; */
+  position: relative;
+}
+
+.dotImage_container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.logo_container {
+  position: absolute;
+  top: 0;
+  bottom: 100;
 }
 
 .role {
@@ -47,7 +65,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.little_intro{
+.little_intro {
   color: white;
 }
 
@@ -99,14 +117,14 @@
   .right_content {
     display: none;
   }
-  .contents{
+  .contents {
     width: 80vw;
   }
 
   .name {
     font-size: 1.2rem;
   }
-  .role{
+  .role {
     font-size: 1.2rem;
   }
   .left_content {
