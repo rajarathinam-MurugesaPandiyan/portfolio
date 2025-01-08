@@ -10,12 +10,14 @@ import Footer from "@/components/footer/footer";
 export default function Home() {
   return (
     <div>
-       <PortFolioHeader></PortFolioHeader>
+      <PortFolioHeader></PortFolioHeader>
       <Intro></Intro>
-      <About></About>
-      {/* <Services></Services>
-      <Social></Social>
       <Skills></Skills>
+      <Social></Social>
+      {/* <About></About> */}
+      {/* <Services></Services>
+      
+
       <Contact></Contact>
       <Footer></Footer> */}
 

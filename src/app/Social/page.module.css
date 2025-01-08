@@ -1,0 +1,50 @@
+.projects_content {
+    min-height: 90vh;
+    width: 100vw;
+    padding: 100px;
+    background-color: #14213d;
+    margin-top: 10vh;
+  }
+  
+  /* Grid container */
+  .grid_container {
+    display: grid;
+    gap: 50px; /* Space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  /* Card styling */
+  .card {
+    background: #282C33;
+    color: #fca311;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    height: 300px;
+    width: 100%; /* Ensures the card adjusts to the grid column width */
+    max-width: 300px; /* Ensures cards don't exceed their intended size */
+  }
+  .card:hover {
+    color: #fca311;
+    background: #14213d;
+  }
+  
+  /* Mobile-friendly adjustments (optional) */
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+    .card{
+      max-width: 250px;
+      height: 250px;
+    }
+    .projects_content{
+      padding : 0px;
+    }
+  }
+  

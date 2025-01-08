@@ -16,14 +16,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #282C33;
   background-color: #1f1f1f;
 }
 
 .myself {
   font-weight: 200;
   font-size: 1rem;
-  color: white;
+  color: #282C33;
   background-color: #1f1f1f;
   width: 70vw;
   text-align: center;
@@ -40,14 +40,14 @@
 
 .stats_content {
   background-color: #1f1f1f;
-  color: #ffd4d0;
+  color: #282C33;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
 .stats_value {
   background-color: #1f1f1f;
-  color: #ffd4d0;
+  color: #282C33;
   font-weight: 700;
   font-size: 4.5rem;
 }

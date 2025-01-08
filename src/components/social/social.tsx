@@ -1,7 +1,8 @@
 import styles from "./social.module.css";
-import uprightarrow from "../../images/up-right-arrow.gif";
 import Image from "next/image";
-import { redirect } from "next/dist/server/api-utils";
+import Hastag from "../hashtag/hastag";
+import logoMaker from "@/images/Logo.svg";
+import dotImage from '@/images/Dots.svg';
 
 interface SocialStruct {
   names: String;
@@ -14,52 +15,56 @@ const socialConstants: SocialStruct[] = [
     names: "Youtube",
     url: "https://youtube.com/@ethicsofcoding?si=oq8Pel4vVJ2g6XDQ",
     content:
-      "Here I create some videos realted to coding , The Channel name is Ethics Of Coding, Take a look into the channel , do subscribe and share.",
-  },
-  {
-    names: "Medium",
-    url: "https://medium.com/@rajamurugesan217",
-    content:
-      "I write some blogs related to coding and other difficulties in the community thus they can expore more into new concepts via reading.",
-  },
-  {
-    names: "StackOverflow",
-    url: "https://stackoverflow.com/users/19091209/rajarathinam-murugesan?tab=profile",
-    content:
-      "Here I answer some questions that are raised by the community people and I try to solve them by giving solutions.",
-  },
+      "🎥 Hey there, code enthusiasts! On my channel Ethics Of Coding, I cook up some cool coding content 🍳💻. Swing by, take a peek 👀, and don't forget to smash that Subscribe button 🔔 and share the love! 🚀✨",
+  }
 ];
 
 export default function Social() {
   return (
     <div id="Social" className={styles.social_main}>
-      <div className={styles.social_head}>Social</div>
-      <div className={styles.social_des}>
-        Im a Content Creator in YT to educate people , Blogger in Medium and
-        many other things constantly contributing to the social platforms for my
-        fellow developers and other peoples.
+      <div className={styles.skills_header}>
+        <div className={styles.skill_style}>
+          <Hastag logo="#" />
+          social <span className={styles.border}></span>
+        </div>
+        <div className={styles.view_all}>{"View all"} </div>
       </div>
-      <div className={styles.social_content}>
-        {socialConstants.map((e, i) => (
-          <a key={i} className={styles.anchor} target="_blank" href={e.url}>
-            <div className={styles.social_single}>
-              <div className={styles.social_title}>
-                <div className={styles.social_name}> {e.names}</div>
-                <div>
-                  <Image
-                    draggable="false"
-                    src={uprightarrow}
-                    className={styles.images}
-                    width={20}
-                    height={20}
-                    alt="Picture of the author"
-                  />
+      <div className={styles.social_body}>
+        <div className={styles.image_holder}>
+          <div className={styles.social_intro}>
+            <div className={styles.text_value}> <p>🌟 I am a Content Creator 🤝💬🚀</p> </div>
+          </div>
+          <div className={styles.logo_container}>
+            <Image
+              draggable="false"
+              className={styles.profile_pic}
+              src={logoMaker}
+              alt="Picture of the author"
+            />
+          </div>
+          <div className={styles.dotImage_container}>
+            <Image
+              draggable="false"
+              className={styles.profile_pic}
+              src={dotImage}
+              alt="Picture of the author"
+            />
+          </div>
+
+        </div>
+        <div className={styles.social_content}>
+          {socialConstants.map((e, i) => (
+            <a key={i} className={styles.anchor} target="_blank" href={e.url}>
+              <div className={styles.social_single}>
+                <div className={styles.social_title}>
+                  <div className={styles.social_name}> <Hastag logo="#" /> {e.names}</div>
                 </div>
+                <div className={styles.social_media_content}>{e.content}</div>
               </div>
-              <div className={styles.social_media_content}>{e.content}</div>
-            </div>
-          </a>
-        ))}
+            </a>
+          ))}
+        </div>
+
       </div>
     </div>
   );
