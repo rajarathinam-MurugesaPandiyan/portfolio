@@ -1,26 +1,20 @@
 import Intro from "@/components/intro/intro";
-import About from "@/components/about/about";
-import Services from "@/components/services/service";
 import PortFolioHeader from "@/components/header/header";
 import Skills from "@/components/skills/skills";
 import Social from "@/components/social/social";
-import Contact from "@/components/contact/contact";
-import Footer from "@/components/footer/footer";
+import { skillsconstants, socialConstants } from "@/constants/data_constants";
+import Projects from "@/components/projects/projects";
+import About from "@/components/about/about";
 
 export default function Home() {
   return (
     <div>
-      <PortFolioHeader></PortFolioHeader>
-      <Intro></Intro>
-      <Skills></Skills>
-      <Social></Social>
-      {/* <About></About> */}
-      {/* <Services></Services>
-      
-
-      <Contact></Contact>
-      <Footer></Footer> */}
-
+      <PortFolioHeader />
+      <Intro />
+      <About/>
+      <Projects />
+      <Skills skillPropType={skillsconstants} />
+      <Social socialProp={socialConstants} />
     </div>
   );
 }

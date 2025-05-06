@@ -1,35 +1,26 @@
-.anchor {
-  text-decoration: none;
-}
-
 .social_main {
   width: 80vw;
   margin-left: 10vw;
-  height: 80vh;
   margin-top: 10vh;
 }
 
-.social_head {
-  width: 100vw;
-  height: 10vh;
-  background-color: #282c33;
+.skills_header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 35px;
-  font-weight: 500;
-  text-align: center;
+  justify-content: space-between;
 }
+
 .view_all {
   color: #abb2bf;
 }
 
 .social_content {
-  width: 50vw;
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  width: 80vw;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 20px;
+  justify-items: center;
 }
 
 .social_des {
@@ -43,9 +34,11 @@
 }
 
 .social_body {
+  padding-top: 5vh;
   width: 80vw;
-  height: 50vh;
+  background-color: #c778dd;
   display: flex;
+  background-color: transparent;
   align-items: center;
   justify-content: center;
 }
@@ -60,67 +53,37 @@
   cursor: pointer;
   padding: 20px;
   border-radius: 20px;
+
+}
+.social_single:hover{
   box-shadow: #c778dd 0px 1px 1px 0px inset, #c778dd 0px 0px 100px -20px,
-    #c778dd 0px 30px 60px -30px;
+  #c778dd 0px 30px 60px -30px;
 }
 
 .social_title {
   background-color: transparent;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.skills_header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .social_intro {
   width: 500px;
   margin: 0 auto;
   max-height: 300px;
   font-size: 1.5rem;
-  /* background-color: aqua;  */
   display: flex;
   color: #abb2bf;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative;
   top: 200px;
   left: 100px;
   background-color: transparent;
 }
 
-.text_value {
-  text-wrap: wrap;
-  background-color: transparent;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid #c778dd; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-/* Typing effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #c778dd;
-  }
-}
 .skill_style {
   color: white;
   font-size: 35px;
@@ -143,7 +106,6 @@
 .image_holder {
   height: 40vh;
   width: 40vw;
-  /* background-color: bisque; */
   position: relative;
 }
 
@@ -171,10 +133,11 @@
 }
 
 @media (max-width: 1000px) {
-  .image_holder {
-    display: none;
+  .skills_header {
+    width: 80vw;
   }
-  .social_body {
-    width: 100vw;
+
+  .border {
+   display: none;
   }
 }

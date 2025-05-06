@@ -44,12 +44,42 @@
   position: absolute;
   bottom: 0;
   right: 0;
+  animation: floatLeft 3s ease-in-out infinite;
 }
 
 .logo_container {
   position: absolute;
   top: 0;
   bottom: 100;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes floatLeft {
+  0% {
+      transform: translateX(0);
+  }
+
+  50% {
+      transform: translateX(-30px);
+  }
+
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-30px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
 }
 
 .role {

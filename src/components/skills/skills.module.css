@@ -3,18 +3,12 @@
   margin-left: 10vw;
 }
 
-.skills_text {
-  color: white;
-  font-size: 35px;
-  height: 10vh;
-  width: 50vw;
+.skills_header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-.skills_body {
-  margin-top: 5vh;
-}
+
 .skill_style {
   color: white;
   font-size: 35px;
@@ -28,31 +22,31 @@
   margin-left: 50px;
 }
 
-.skills_des {
-  width: 80vw;
-  background-color: #282c33;
-  font-weight: 200;
-  color: #282c33;
-  text-align: center;
-}
-
-.skills_header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.js {
-  border-radius: 50px;
-}
-
-/* Grid container */
 .grid_container {
-  display: grid;
-  gap: 50px; /* Space between cards */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-top: 5vh;
+  width: 50vw;
+  display: flex;
+  flex-wrap: wrap;
   padding: 20px;
-  justify-items: center;
+  gap: 20px;
+}
+
+.card {
+  color: #c778dd;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  border-radius: 17px;
+  height: fit-content;
+  background-color: transparent;
+  width: fit-content;
+  border: #c778dd 2px solid;
+}
+.card:hover {
+  border: white 2px solid;
 }
 
 .view_all {
@@ -64,63 +58,24 @@
   color: white;
 }
 
-.grid_item {
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #282c33;
-  cursor: pointer;
-}
-
-/* Card styling */
-.card {
-  color: white;
-  border: 2px solid #abb2bf;
-  /* padding: 20px; */
-  cursor: pointer;
-  text-align: center;
-  height: 275px;
-  width: 100%; /* Ensures the card adjusts to the grid column width */
-  max-width: 300px; /* Ensures cards don't exceed their intended size */
-}
-.card:hover {
-  border: 2px solid white;
-}
-
-.card_body {
-  height: 200px;
-  padding: 15px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
 .skills {
-  font-size: 1.5rem;
-  color: white;
-  background-color: #282c33;
+  font-size: 1.2rem;
   margin-left: 20px;
-}
-.skill_desc {
-  text-align: start;
-  font-size: 0.9rem;
-}
-
-.card_header {
-  border-bottom: 2px solid #abb2bf;
-  padding: 10px;
-  height: 70px;
-  width: 100%; /* Ensures the card adjusts to the grid column width */
-  max-width: 300px;
-  display: flex;
-  align-items: center;
 }
 
 @media (max-width: 1000px) {
-  .skills_text {
-    width: 80vw;
+  .border {
+    display: none;
+  }
+
+  .grid_container {
+    width: 100vw;
+  }
+  .card {
+    padding: 10px;
+  }
+
+  .skills {
+    font-size: 1rem;
   }
 }

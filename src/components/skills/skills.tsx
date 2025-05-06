@@ -1,93 +1,83 @@
 import styles from "./skills.module.css";
-import Image, { StaticImageData } from "next/image";
-import js from "../../images/js.png";
-import dart from "../../images/dart.png";
-import ts from "../../images/ts.png";
-import go from "../../images/go.png";
-import flutter from "../../images/flutter.png";
-import reactIcons from "../../images/react.png";
-import nextIcons from "../../images/next_transparent.png";
-import node from "../../images/node.png";
-import git from "../../images/git.png";
-import firebase from "../../images/firebase.png";
-import mongo from "../../images/mongo.png";
-import maria from "../../images/maria.jpg";
 import Hastag from "../hashtag/hastag";
+import { SiApachekafka, SiDart, SiElasticsearch, SiFirebase, SiFlutter, SiGin, SiGit, SiGo, SiJavascript, SiMariadb, SiMongodb, SiNextdotjs, SiNodedotjs, SiReact, SiTypescript } from 'react-icons/si';
+import { ReactNode } from "react";
+
 
 interface SkillStruct {
   skill: String;
-  imageUrl: StaticImageData;
-  skillDesc: String;
-  rating: number;
+  imageUrl: ReactNode;
 }
 
 let skills: SkillStruct[] = [
   {
     skill: "Flutter",
-    imageUrl: flutter,
-    rating: 4,
-    skillDesc:
-      "🎩✨ Flutter magician turning code into sleek, cross-platform apps! 🧩 Master of widgets, APIs, and bug-busting with a dash of creative flair. 🚀🎉",
+    imageUrl: <SiFlutter size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+
   },
   {
     skill: "Dart",
-    rating: 4,
-    imageUrl: dart,
-    skillDesc: "🎯 Dart ninja crafting clean, efficient code! 🚀 Master of classes, async magic, and turning ideas into lightning-fast apps with style and precision. 💻✨",
+
+    imageUrl: <SiDart size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
   },
   {
-    skill: "React Js",
-    rating: 4,
-    imageUrl: reactIcons,
-    skillDesc: "⚛️ React wizard conjuring dynamic, user-friendly web apps! 🎨 Master of components, hooks, and state, making the web interactive one line at a time. 🚀💻",
-  },
-  {
-    skill: "Next Js",
-    rating: 4,
-    imageUrl: nextIcons,
-    skillDesc: "🚀 Next.js navigator building blazing-fast, SEO-friendly web apps! 🌐 Master of SSR, API routes, and dynamic pages, turning ideas into scalable solutions. ⚡✨",
+    skill: "React",
+
+    imageUrl: <SiReact size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
   },
   {
     skill: "JavaScript",
-    imageUrl: js,
-    rating: 4,
-    skillDesc: "🛠️ JavaScript juggler creating magic across the web! 🌟 Master of DOM, async tricks, and making browsers dance with interactive brilliance. 🎭💻",
+    imageUrl: <SiJavascript size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+
+  },
+  {
+    skill: "Next",
+
+    imageUrl: <SiNextdotjs size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  },
+  {
+    skill: "TypeScript",
+    imageUrl: <SiTypescript size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+
   },
 
   {
-    skill: "Go Lang",
-    imageUrl: go,
-    skillDesc: "🐹 Go guru crafting lightning-fast, scalable backend magic! 🚀 Master of goroutines, APIs, and clean code, building rock-solid solutions with efficiency. 💻✨",
-    rating: 4,
+    skill: "Go",
+    imageUrl: <SiGo size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+
   },
   {
-    skill: "Mongo DB",
-    imageUrl: mongo,
-    rating: 4,
-    skillDesc: "🍃 MongoDB maestro managing data like a pro! 📊 Master of NoSQL, flexible schemas, and lightning-fast queries for seamless, scalable solutions. 🚀💾",
+    skill: "Mongo",
+    imageUrl: <SiMongodb size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+
   },
   {
-    skill: "Maria DB",
-    imageUrl: maria,
-    rating: 4,
-    skillDesc: "🔧 MariaDB master optimizing relational databases with precision! 🗄️ Expert in complex queries, schema design, and ensuring fast, reliable data storage. 🚀💻",
+    skill: "Maria",
+    imageUrl: <SiMariadb size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+
   },
-  // {
-  //   skill: "Next",
-  //   imageUrl: reactIcons,
-  // },
-  // {
-  //   skill: "Node",
-  //   imageUrl: node,
-  // },
-  // {
-  //   skill: "Git",
-  //   imageUrl: git,
-  // },
-  // {
-  //   skill: "Firebase",
-  //   imageUrl: firebase,
-  // },
+  {
+    skill: "Node",
+    imageUrl: <SiNodedotjs size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  },
+  {
+    skill: "Git",
+    imageUrl: <SiGit size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  },
+  {
+    skill: "Firebase",
+    imageUrl: <SiFirebase size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  }, {
+    skill: "GIN",
+    imageUrl: <SiGin size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  }, {
+    skill: "Kafka",
+    imageUrl: <SiApachekafka size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  },
+  {
+    skill: "Elastic",
+    imageUrl: <SiElasticsearch size={30} color="#c778dd98" style={{ backgroundColor: "transparent" }} />,
+  },
 ];
 
 export default function Skills() {
@@ -100,32 +90,23 @@ export default function Skills() {
         </div>
         <div className={styles.view_all}>{"View all"} </div>
       </div>
-
-      <div className={styles.skills_body}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: "c778dd98" }}>
         <div className={styles.grid_container}>
           {skills.map((e, i) => (
             <div className={styles.card}>
-              <div className={styles.card_header}>
-                <div key={i} className={styles.grid_item}>
-                  <Image
-                    draggable="false"
-                    className={styles.js}
-                    src={e.imageUrl}
-                    width={50}
-                    height={50}
-                    alt="Picture of the author"
-                  />
-                </div>
+              <div style={{
+                backgroundColor: 'transparent',
+                display: 'flex',
+
+              }}>
+                {e.imageUrl}
                 <div className={styles.skills}>{e.skill}</div>
-              </div>
-              <div className={styles.card_body}>
-                <div className={styles.skill_desc}>{e.skillDesc}</div>
-                <div className={styles.rating} > Skill meter - {e.rating}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
     </div>
   );
 }

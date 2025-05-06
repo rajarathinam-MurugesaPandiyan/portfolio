@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./intro.module.css";
 import logoMaker from "@/images/Logo.svg";
+import profileImage from "@/images/raja-removebg.png";
 import dotImage from '@/images/Dots.svg';
 
 function scrollToTargetAdjusted() {
