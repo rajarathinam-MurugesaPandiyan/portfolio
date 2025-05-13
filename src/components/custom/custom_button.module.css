@@ -1,0 +1,15 @@
+.skills {
+  height: 40px;
+  width: 200px;
+  font-weight: 500;
+  background-color: #282c33;
+  color: white;
+  border: 1px #c778dd solid;
+  margin-left: 10px;
+}
+.skills:hover {
+  cursor: pointer;
+  color: #282c33;
+  border: 1px #282c33 solid;
+  background-color: #c778dd;
+}

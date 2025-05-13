@@ -1,9 +1,16 @@
 .contact_main {
-  width: 100vw;
-  height: 70vh;
+  margin-top: 10vh;
+  width: 80vw;
   display: flex;
-  align-items: center;
   flex-direction: column;
+}
+
+.header_wrapper {
+  margin-left: 10vw;
+}
+
+.contact_animation {
+  cursor: pointer;
 }
 
 .contact_text {
@@ -34,14 +41,15 @@
 
 .form {
   display: flex;
+  width: 80vw;
+  margin-left: 10vw;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .form_left {
-  width: 50vw;
-  height: 70vh;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +58,7 @@
 
 .form_right {
   margin-top: 10vh;
-  width: 50vw;
+  width: 40vw;
   height: 50vh;
   display: flex;
   align-items: center;
@@ -98,6 +106,11 @@
   border: 1px solid #1f1f1f;
   border-radius: 5px;
   padding: 10px;
+  color: white;
+}
+
+.name_input:focus {
+  outline: none; 
 }
 
 .textArea {
@@ -106,4 +119,31 @@
   border: 1px solid #1f1f1f;
   border-radius: 5px;
   padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .contact_main {
+    width: 100vw;
+  }
+
+  .header_wrapper {
+    margin-left: 10vw;
+  }
+  .form {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .form_right {
+    width: 100vw;
+  }
+  .form_left {
+    width: 100vw;
+  }
+  .name_input {
+    width: 70vw;
+  }
+  .textArea {
+    width: 70vw;
+  }
 }

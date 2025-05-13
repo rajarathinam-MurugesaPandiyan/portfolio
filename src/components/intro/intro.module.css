@@ -1,6 +1,6 @@
 .intro_main {
   width: 100vw;
-  height: 60vh;
+  height: 75vh;
   background-color: #282c33;
 }
 
@@ -31,13 +31,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #282c33;
+  position: relative;
 }
 .image_holder {
   height: 30vh;
-  width: 30vw;
-  /* background-color: #c778dd; */
-  position: relative;
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dotImage_container {
@@ -56,29 +57,29 @@
 
 @keyframes floatLeft {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   50% {
-      transform: translateX(-30px);
+    transform: translateX(-30px);
   }
 
   100% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes float {
   0% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 
   50% {
-      transform: translateY(-30px);
+    transform: translateY(-30px);
   }
 
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -126,24 +127,10 @@
   background-color: white;
 }
 
-.skills {
-  height: 40px;
-  width: 200px;
-  font-weight: 500;
-  background-color: #282c33;
-  color: white;
-  border: 1px #c778dd solid;
-  margin-left: 10px;
-}
-
-.skills:hover {
-  cursor: pointer;
-  color: #282c33;
-  border: 1px #282c33 solid;
-  background-color: #c778dd;
-}
-
 @media (max-width: 1000px) {
+  .intro_main {
+    height: 60vh;
+  }
   .right_content {
     display: none;
   }

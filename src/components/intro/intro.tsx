@@ -1,31 +1,13 @@
 "use client";
-import Image from "next/image";
+import CustomButton from "../custom/custom_button";
 import styles from "./intro.module.css";
-import logoMaker from "@/images/Logo.svg";
-import profileImage from "@/images/raja-removebg.png";
-import dotImage from '@/images/Dots.svg';
+import dynamic from "next/dynamic";
 
-function scrollToTargetAdjusted() {
-  var element = document.getElementById("Skills");
-  var headerOffset = 85;
-  // scroll to your element
-  element?.scrollIntoView(true);
-  var offsetPosition = window.scrollY - headerOffset;
+const IntroAnimation = dynamic(() => import("@/animations/intro_animation"), {
+  ssr: false,
+});
 
-  window.scroll({
-    top: offsetPosition,
-    behavior: "smooth",
-  });
-}
 
-function handleOpenFile() {
-  const link = document.createElement("a");
-  link.href = "/resume.pdf"; // Path to your PDF file
-  link.download = "resume.pdf"; // Desired name for the downloaded file
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
 
 export default function Intro() {
   return (
@@ -47,32 +29,11 @@ export default function Intro() {
               </span>
             </div>
             <br />
-            <button className={styles.skills} onClick={scrollToTargetAdjusted}>
-              Contact Me !!
-            </button>
+            <CustomButton buttonName="Hire Me !!"  />
           </div>
         </div>
         <div className={styles.right_content}>
-          <div className={styles.image_holder}>
-            <div className={styles.logo_container}>
-              <Image
-                draggable="false"
-                className={styles.profile_pic}
-                src={logoMaker}
-                alt="Picture of the author"
-              />
-            </div>
-            <div className={styles.dotImage_container}>
-              <Image
-                draggable="false"
-                className={styles.profile_pic}
-                src={dotImage}
-                alt="Picture of the author"
-              />
-            </div>
-
-          </div>
-
+          <IntroAnimation />
         </div>
       </div>
     </div>
