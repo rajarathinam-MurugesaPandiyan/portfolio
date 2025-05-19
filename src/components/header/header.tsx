@@ -1,10 +1,7 @@
 "use client";
 import { useRouter } from 'next/navigation'
 import styles from "./header.module.css";
-import { navigation_items } from '@/constants/constants';
 import Hastag from '../hashtag/hastag';
-import Image from 'next/image';
-import menu from '@/images/menu.svg';
 
 export default function PortFolioHeader() {
     const router = useRouter()
@@ -18,17 +15,18 @@ export default function PortFolioHeader() {
         <div className={styles.header_main}>
             <div className={styles.header}>
                 <div className={styles.logo}>
-                    <Hastag logo='<<' />  {"Raja"} <Hastag logo='>>' />
+                    <Hastag logo='<<' />  {"Rajarathinam"} <Hastag logo='>>' />
                 </div>
-                <div className={styles.menuIcon}>
+                {/* TODO will implement in future if needed */}
+                {/* <div className={styles.menuIcon}>
                     <Image
                         draggable="false"
                         className={styles.profile_pic}
                         src={menu}
                         alt="Picture of the author"
                     ></Image>
-                </div>
-                <div className={styles.navigation}>
+                </div> */}
+                {/* <div className={styles.navigation}>
                     {navigation_items.map((e, i) => (
                         <div
                             key={i}
@@ -38,7 +36,7 @@ export default function PortFolioHeader() {
                             <Hastag logo='#' /> {e}
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
         </div>
     );

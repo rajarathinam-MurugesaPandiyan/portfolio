@@ -1,10 +1,37 @@
-.footer_main{
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    font-size: 35px;
+.footer_main {
+  padding: 50px;
+  width: 100vw;
+  height: 30vh;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: 600;
+  /* background-color: aliceblue; */
+  font-size: 1.2rem;
+}
+
+.social_container {
+  height: 100px;
+  width: 30vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.icons {
+  cursor: pointer;
+  color: white;
+}
+.thanks {
+  width: 250px;
+  height: 250px;
+  background-color: transparent;
+  cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .social_container {
+    width: 90vw;
+  }
 }

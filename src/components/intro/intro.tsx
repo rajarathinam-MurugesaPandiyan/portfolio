@@ -1,4 +1,5 @@
 "use client";
+import { Console } from "console";
 import CustomButton from "../custom/custom_button";
 import styles from "./intro.module.css";
 import dynamic from "next/dynamic";
@@ -29,7 +30,7 @@ export default function Intro() {
               </span>
             </div>
             <br />
-            <CustomButton buttonName="Hire Me !!"  />
+            <CustomButton buttonName="Hire Me !!" onTap={()=>console.log("hellop")} />
           </div>
         </div>
         <div className={styles.right_content}>

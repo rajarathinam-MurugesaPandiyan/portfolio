@@ -6,15 +6,31 @@ import { useRef } from "react";
 import { ProjectProjects } from "./model/project_props";
 import xpense from "@/images/xpense.png";
 import portfolio from "@/images/portfolio.png";
+import trello from "@/images/trello.png";
+
 import Image from "next/image";
-import FloatingAnimation from "@/animations/floating";
-import LiveAnimation from "@/animations/live";
 import {
     MdKeyboardDoubleArrowRight,
     MdKeyboardDoubleArrowLeft,
 } from "react-icons/md";
-import InprogressAnimation from "@/animations/inprogress";
 import TitleHeader from "../title_header";
+import dynamic from "next/dynamic";
+
+
+const LiveAnimation = dynamic(() => import("@/animations/live"), {
+    ssr: false,
+});
+
+
+const InprogressAnimation = dynamic(() => import("@/animations/inprogress"), {
+    ssr: false,
+});
+
+const FloatingAnimation = dynamic(() => import("@/animations/floating"), {
+    ssr: false,
+});
+
+
 
 const propData: ProjectProjects[] = [
     {
@@ -32,25 +48,25 @@ const propData: ProjectProjects[] = [
         image: portfolio,
         stack: "Next, JS",
         description:
-            "Xpense is a personal finance app built to help users seamlessly track their daily expenses, manage budgets, and their spending habits.",
+            "Portfolio with a curated collection that showcases skills, projects, and accomplishments to highlight your experience and expertise",
         status: <LiveAnimation css={styles.live_button} />,
     },
     {
         name: "Xpense - GO",
-        link: "https://play.google.com/store/apps/details?id=com.ragogaxpense_tracker",
+        link: "",
         image: xpense,
-        stack: "Flutter , Dart",
+        stack: "GO , GIN",
         description:
-            "Xpense is a personal finance app built to help users seamlessly track their daily expenses.",
+            "Xpense-Go is a personal finance API Services UnderGoing built to help users seamlessly track their daily expenses.",
         status: <InprogressAnimation css={styles.live_button} />,
     },
     {
         name: "Trello",
-        link: "https://play.google.com/store/apps/details?id=com.ragogaxpense_tracker",
-        image: xpense,
+        link: "https://trelloreact.surge.sh/",
+        image: trello,
         stack: "Flutter , Dart",
         description:
-            "Xpense is a personal finance app built to help users seamlessly track their daily expenses.",
+            "Trello Replica created in my intern period just added to fill my spaces",
         status: <LiveAnimation css={styles.live_button} />,
     },
 ];

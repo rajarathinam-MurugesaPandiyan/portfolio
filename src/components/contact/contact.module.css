@@ -119,6 +119,12 @@
   border: 1px solid #1f1f1f;
   border-radius: 5px;
   padding: 10px;
+  color: white;
+}
+
+.textArea:focus{
+  outline: none; 
+
 }
 
 @media (max-width: 1000px) {
