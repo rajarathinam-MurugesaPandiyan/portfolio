@@ -1,0 +1,159 @@
+.projects_main {
+  width: 80vw;
+  padding: 20px;
+  margin-left: 10vw;
+}
+
+.project_body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.floater {
+  width: 25vw;
+  height: 25vh;
+}
+
+.project_container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.left_right_button_container {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.left_right_button {
+  width: 30px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.project_overall {
+  height: 50vh;
+  width: 40vw;
+  gap: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+}
+
+.project_card {
+  height: 170px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.image_border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  padding-right: 20px;
+  border-right: 3px solid #c778dd98;
+}
+
+.image_container {
+  display: flex;
+  align-items: center;
+}
+
+.image_content {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+}
+
+.project_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.project_name_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+}
+
+.description {
+  font-size: 14px;
+  color: white;
+  font-weight: 300;
+}
+
+.stack {
+  margin-top: 5px;
+  font-size: 14px;
+  color: white;
+  font-weight: 300;
+}
+
+.live_button {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+@media (max-width: 1000px) {
+  .projects_main {
+    margin-left: 5vw;
+    width: 100vw;
+  }
+
+  .project_body {
+    width: 100vw;
+    flex-direction: column;
+  }
+
+  .floater {
+    width: 300px;
+    height: 300px;
+  }
+  .project_overall {
+    height: 30vh;
+    overflow: scroll;
+    gap: 40px;
+    width: 80vw;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .project_details {
+    width: 500px;
+  }
+  .name {
+    color: white;
+    font-size: 16px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .stack {
+    font-size: 10px;
+  }
+}

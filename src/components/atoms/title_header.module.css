@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_name {
+  color: white;
+  font-size: 35px;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+}
+
+.border {
+    width: 20vw;
+    border: 1px #c778dd98 solid;
+    margin-left: 50px;
+  }

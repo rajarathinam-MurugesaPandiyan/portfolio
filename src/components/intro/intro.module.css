@@ -1,94 +1,150 @@
 .intro_main {
-    width: 100vw;
-    height: 60vh;
-    background-color: #ffd4d0;
+  width: 100vw;
+  height: 75vh;
+  background-color: #282c33;
 }
 
 .content_main {
-    width: 100vw;
-    background-color: #ffd4d0;
-    height: 50vh;
-    display: flex;
-    align-items: center;
+  width: 100vw;
+  background-color: #282c33;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .left_content {
-    margin-top: 20vh;
-    text-align: center;
-    width: 50vw;
-    background-color: #ffd4d0;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin-top: 20vh;
+  width: 50vw;
+  background-color: #282c33;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .right_content {
-    margin-top: 20vh;
-    width: 50vw;
-    height: 50vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background-color: #ffd4d0;
+  margin-top: 20vh;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.image_holder {
+  height: 30vh;
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotImage_container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  animation: floatLeft 3s ease-in-out infinite;
+}
+
+.logo_container {
+  position: absolute;
+  top: 0;
+  bottom: 100;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes floatLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-30px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .role {
-    font-weight: 200;
-    font-size: 1rem;
-    background-color: #ffd4d0;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #c778dd;
+  margin-right: 10px;
+}
+.contents {
+  width: 30vw;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.little_intro {
+  color: white;
 }
 
 .name {
-    font-size: 2.3rem;
-    font-weight: 700;
-    background-color: #ffd4d0;
-
-}
-
-.hi {
-    font-size: 2.3rem;
-    font-weight: 700;
-    background-color: #ffd4d0;
-}
-
-.content_main {
-    background-color: #ffd4d0;
+  font-size: 1.7em;
+  font-weight: 700;
+  color: white;
+  margin-right: 10px;
 }
 
 .button_grp {
-    margin-top: 20px;
-    background-color: #ffd4d0;
+  margin-top: 20px;
+  width: 80vw;
+  background-color: #282c33;
 }
 
 .hire_me {
-    height: 40px;
-    width: 100px;
-    background-color: #1F1F1F;
-    color: white;
-    border: none;
-    border-radius: 2px;
+  height: 40px;
+  width: 100px;
+  color: white;
+  border: none;
+  border-radius: 2px;
 }
 
 .hire_me:hover {
-    cursor: pointer;
-    color: #1F1F1F;
-    background-color: white;
+  cursor: pointer;
+  color: #1f1f1f;
+  background-color: white;
 }
 
-.skills{
-    height: 40px;
-    width: 100px;
-    background-color: #1F1F1F;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    margin-left: 10px;
-}
+@media (max-width: 1000px) {
+  .intro_main {
+    height: 60vh;
+  }
+  .right_content {
+    display: none;
+  }
+  .contents {
+    width: 80vw;
+  }
 
-.skills:hover {
-    cursor: pointer;
-    color: #1F1F1F;
-    background-color: white;
+  .name {
+    font-size: 1.2rem;
+  }
+  .role {
+    font-size: 1.2rem;
+  }
+  .left_content {
+    width: 100vw;
+  }
 }

@@ -1,63 +1,40 @@
 "use client";
-import Image from "next/image";
+import { Console } from "console";
+import CustomButton from "../custom/custom_button";
 import styles from "./intro.module.css";
-import profilePic from "../../images/rajarathinam.png";
+import dynamic from "next/dynamic";
 
-function scrollToTargetAdjusted() {
-  var element = document.getElementById("Skills");
-  var headerOffset = 85;
-  // scroll to your element
-  element?.scrollIntoView(true);
-  var offsetPosition = window.scrollY - headerOffset;
+const IntroAnimation = dynamic(() => import("@/animations/intro_animation"), {
+  ssr: false,
+});
 
-  window.scroll({
-    top: offsetPosition,
-    behavior: "smooth",
-  });
-}
 
-function handleOpenFile() {
-  const link = document.createElement('a');
-  link.href = '/resume.pdf'; // Path to your PDF file
-  link.download = 'resume.pdf'; // Desired name for the downloaded file
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
 
 export default function Intro() {
   return (
     <div className={styles.intro_main}>
       <div className={styles.content_main}>
         <div className={styles.left_content}>
-          <p className={styles.role}>Associate Software Engineer</p>
-          <span className={styles.hi}>Hi There , Im</span>
-          <span className={styles.name}>Rajarathinam</span>
-          <div style={{ width: "300px" }}>
-            <p className={styles.role}>
-              Welcome to my portfolio of captivating digital experiences.
-              Explore my work and lets create something extraordinary together.
-            </p>
-          </div>
-          <div className={styles.button_grp}>
-            <button className={styles.hire_me} onClick={handleOpenFile} >
-              Hire Me
-
-            </button>
-            <button className={styles.skills} onClick={scrollToTargetAdjusted}>
-              Skills
-            </button>
+          <div className={styles.contents}>
+            <div>
+              <span className={styles.name}>I'm Rajarathinam</span>
+              <span className={styles.role}>Software Development Engineer</span>
+              <span className={styles.name}>and</span>
+              <span className={styles.role}>Content Creator</span>
+            </div>
+            <br />
+            <div>
+              <span className={styles.little_intro}>
+                I built websites , mobile apps , and do some content creations
+                based on coding
+              </span>
+            </div>
+            <br />
+            <CustomButton buttonName="Hire Me !!" onTap={()=>console.log("hellop")} />
           </div>
         </div>
         <div className={styles.right_content}>
-          <Image
-            draggable="false"
-            className={styles.profile_pic}
-            src={profilePic}
-            width={400}
-            height={400}
-            alt="Picture of the author"
-          />
+          <IntroAnimation />
         </div>
       </div>
     </div>

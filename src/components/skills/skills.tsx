@@ -1,97 +1,213 @@
 import styles from "./skills.module.css";
-import Image, { StaticImageData } from "next/image";
-import js from "../../images/js.png";
-import dart from "../../images/dart.png";
-import ts from "../../images/ts.png";
-import go from "../../images/go.png";
-import flutter from "../../images/flutter.svg";
-import reactIcons from "../../images/react.png";
-import node from "../../images/node.png";
-import git from "../../images/git.png";
-import firebase from "../../images/firebase.png";
-import mongo from "../../images/mongo.png";
-import maria from "../../images/maria.jpg";
+import Hastag from "../hashtag/hastag";
+import {
+  SiApachekafka,
+  SiDart,
+  SiElasticsearch,
+  SiFirebase,
+  SiFlutter,
+  SiGin,
+  SiGit,
+  SiGo,
+  SiJavascript,
+  SiMariadb,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiTypescript,
+} from "react-icons/si";
+import { ReactNode } from "react";
+import TitleHeader from "../title_header";
 
 interface SkillStruct {
   skill: String;
-  imageUrl: StaticImageData;
+  imageUrl: ReactNode;
 }
 
 let skills: SkillStruct[] = [
   {
-    skill: "Java Script",
-    imageUrl: js,
-  },
-  {
-    skill: "Type Script",
-    imageUrl: ts,
+    skill: "Flutter",
+    imageUrl: (
+      <SiFlutter
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
     skill: "Dart",
-    imageUrl: dart,
-  },
-  {
-    skill: "Go Lang",
-    imageUrl: go,
-  },
-  {
-    skill: "Flutter",
-    imageUrl: flutter,
+
+    imageUrl: (
+      <SiDart
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
     skill: "React",
-    imageUrl: reactIcons,
+
+    imageUrl: (
+      <SiReact
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
+  },
+  {
+    skill: "JavaScript",
+    imageUrl: (
+      <SiJavascript
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
     skill: "Next",
-    imageUrl: reactIcons,
+    imageUrl: (
+      <SiNextdotjs
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
+  },
+  {
+    skill: "TypeScript",
+    imageUrl: (
+      <SiTypescript
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
+  },
+
+  {
+    skill: "Go",
+    imageUrl: (
+      <SiGo
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
+  },
+  {
+    skill: "Mongo",
+    imageUrl: (
+      <SiMongodb
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
+  },
+  {
+    skill: "Maria",
+    imageUrl: (
+      <SiMariadb
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
     skill: "Node",
-    imageUrl: node,
+    imageUrl: (
+      <SiNodedotjs
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
     skill: "Git",
-    imageUrl: git,
+    imageUrl: (
+      <SiGit
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
     skill: "Firebase",
-    imageUrl: firebase,
+    imageUrl: (
+      <SiFirebase
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
-    skill: "Mongo DB",
-    imageUrl: mongo,
+    skill: "GIN",
+    imageUrl: (
+      <SiGin
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
   {
-    skill: "Maria DB",
-    imageUrl: maria,
+    skill: "Kafka",
+    imageUrl: (
+      <SiApachekafka
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
+  },
+  {
+    skill: "Elastic",
+    imageUrl: (
+      <SiElasticsearch
+        size={30}
+        color="#c778dd98"
+        style={{ backgroundColor: "transparent" }}
+      />
+    ),
   },
 ];
 
 export default function Skills() {
   return (
     <div id="Skills" className={styles.skills_main}>
-      <div className={styles.skills_text}>Skills</div>
-      <div className={styles.skills_des}>
-        {
-          "These Were the skills sets , I have Acquired in my 2.8 years of software development industry , been a mobile developer and web developer I havegained knowledge in both frontend and backend Technologies"
-        }
-      </div>
-      <div className={styles.overall_grid}>
-        {skills.map((e, i) => (
-          <div key={i} className={styles.grid_item}>
-            <Image
-              draggable="false"
-              className={styles.js}
-              src={e.imageUrl}
-              width={100}
-              height={100}
-              alt="Picture of the author"
-            />
-            <br />
-            <p className={styles.skills}>{e.skill}</p>
-          </div>
-        ))}
+      <TitleHeader title_name="Skills" />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "c778dd98",
+        }}
+      >
+        <div className={styles.grid_container}>
+          {skills.map((e, i) => (
+            <div key={i} className={styles.card}>
+              <div
+                style={{
+                  backgroundColor: "transparent",
+                  display: "flex",
+                }}
+              >
+                {e.imageUrl}
+                <div className={styles.skills}>{e.skill}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

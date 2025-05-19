@@ -1,57 +1,82 @@
 .skills_main {
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 10vh;
+}
+
+.skills_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill_style {
+  color: white;
+  font-size: 35px;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+}
+.border {
+  width: 20vw;
+  border: 1px #c778dd98 solid;
+  margin-left: 50px;
+}
+
+.grid_container {
+  margin-top: 5vh;
+  width: 50vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+
+.card {
+  color: #c778dd;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  border-radius: 17px;
+  height: fit-content;
+  background-color: transparent;
+  width: fit-content;
+  border: #c778dd 2px solid;
+}
+.card:hover {
+  border: white 2px solid;
+}
+
+.view_all {
+  color: #abb2bf;
+}
+
+.view_all:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.skills {
+  font-size: 1.2rem;
+  margin-left: 20px;
+}
+
+@media (max-width: 1000px) {
+  .border {
+    display: none;
+  }
+
+  .grid_container {
     width: 100vw;
-    height: 100vh;
-    background-color: #1F1F1F;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
+  }
+  .card {
+    padding: 10px;
+  }
 
-.skills_text {
-    color: #ffd4d0;
-    background-color: #1F1F1F;
-    font-size: 35px;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.skills_des{
-    width: 80vw;
-    background-color: #1F1F1F;
-    font-weight: 200;
-    color: #ffd4d0;
-    text-align: center;
-    
-}
-
-.js{
-    border-radius: 10px;
-}
-
-.overall_grid {
-    width: 90vw;
-    background-color: #1F1F1F;
-    height: 70vh;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 50px; 
-}
-
-.grid_item{
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #1F1F1F;
-    cursor: pointer;
-}
-
-.skills{
-    color: #ffd4d0;
-    background-color: #1F1F1F;
+  .skills {
+    font-size: 1rem;
+  }
 }

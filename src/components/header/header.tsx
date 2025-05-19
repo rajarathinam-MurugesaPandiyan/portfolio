@@ -1,41 +1,42 @@
 "use client";
+import { useRouter } from 'next/navigation'
 import styles from "./header.module.css";
-
-let navigation_items: string[] = ["About", "Services", "Social", "Connect"];
-
-function scrollToTargetAdjusted(name: string) {
-    var element = document.getElementById(name);
-    var headerOffset = 85;
-    // scroll to your element
-    element?.scrollIntoView(true);
-    var offsetPosition = window.scrollY - headerOffset;
-
-    window.scroll({
-        top: offsetPosition,
-        behavior: "smooth",
-    });
-}
-
-
+import Hastag from '../hashtag/hastag';
 
 export default function PortFolioHeader() {
+    const router = useRouter()
+
+
+    function navigation(name: string) {
+        router.push(`/${name}`)
+    }
+
     return (
         <div className={styles.header_main}>
             <div className={styles.header}>
-                <div>
-                    <p className={styles.logo}>Rajarathinam</p>
+                <div className={styles.logo}>
+                    <Hastag logo='<<' />  {"Rajarathinam"} <Hastag logo='>>' />
                 </div>
-                <div className={styles.navigation}>
+                {/* TODO will implement in future if needed */}
+                {/* <div className={styles.menuIcon}>
+                    <Image
+                        draggable="false"
+                        className={styles.profile_pic}
+                        src={menu}
+                        alt="Picture of the author"
+                    ></Image>
+                </div> */}
+                {/* <div className={styles.navigation}>
                     {navigation_items.map((e, i) => (
                         <div
                             key={i}
-                            onClick={(es) => scrollToTargetAdjusted(e)}
+                            onClick={(es) => navigation(e)}
                             className={styles.navigation_item}
                         >
-                            {e}
+                            <Hastag logo='#' /> {e}
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
         </div>
     );
