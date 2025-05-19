@@ -17,7 +17,7 @@ export default function Intro() {
         <div className={styles.left_content}>
           <div className={styles.contents}>
             <div>
-              <span className={styles.name}>I'm Rajarathinam</span>
+              <span className={styles.name}>{`I'm Rajarathinam`}</span>
               <span className={styles.role}>Software Development Engineer</span>
               <span className={styles.name}>and</span>
               <span className={styles.role}>Content Creator</span>
