@@ -1,0 +1,6 @@
+/* Empty App.css to prevent Vite default styles from breaking the layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

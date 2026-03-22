@@ -1,0 +1,30 @@
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  max-width: 500px;
+}
+
+.theme-dark .section-title {
+  color: var(--text-light);
+}
+
+.theme-dark .section-subtitle {
+  color: #AAAAAA;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,112 @@
+.experience-section {
+  padding: 100px 0;
+  background-color: var(--bg-light);
+  position: relative;
+  z-index: 8;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 40px; /* Space for the vertical line */
+}
+
+/* The vertical line in the background */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 9px; /* Centered visually with the dot */
+  height: 100%;
+  width: 2px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 8px; /* Alignment strictly next to the first text block */
+  left: -40px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 4px solid var(--bg-light);
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(251, 125, 69, 0.2);
+}
+
+.timeline-content {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border-color: rgba(251, 125, 69, 0.3);
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: rgba(251, 125, 69, 0.1);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.timeline-role {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.timeline-company {
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.timeline-desc {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 30px;
+  }
+  .timeline-container::before {
+    left: 4px;
+  }
+  .timeline-dot {
+    left: -30px;
+    width: 16px;
+    height: 16px;
+    top: 10px;
+  }
+}
