@@ -3,38 +3,14 @@ import { Button } from "../Button/Button";
 import { FeaturedCarousel } from "./FeaturedCarousel";
 import { Testimonials } from "../Testimonials/Testimonials";
 import { Player } from "@lottiefiles/react-lottie-player";
-import trophyAnim from "../../assets/Trophy.json";
-import trophyAnimation from "../../assets/trophywon.json";
+import {
+  AWARDS_DATA,
+  PROJECT_CATEGORIES,
+  PERSONAL_INFO,
+} from "../../constants";
 import "./Portfolio.css";
 
 export const Portfolio = () => {
-  const categories = [
-    "React & Web Apps",
-    "Go & Scalable Systems",
-    "Flutter Apps",
-    "Architecture & APIs",
-    "UI/UX Craft",
-    "Cloud & Deployment",
-  ];
-  const awards = [
-    {
-      title: "Top Contributor In NADA 2024 Awarded With Cash Prize",
-      category: "Tekion Corp",
-      author: "Hackathon & Innovation Excellence",
-      date: "2024",
-      bgColor: "#0A1128",
-      animation: trophyAnimation,
-    },
-    {
-      title: "Best Intern For The Month Of December",
-      category: "Fibonalabs",
-      author: "Multi-Stack Engineering Contribution",
-      date: "Dec 2021",
-      bgColor: "#1E293B",
-      animation: trophyAnim,
-    },
-  ];
-
   return (
     <section className="portfolio-section" id="project">
       <div className="container">
@@ -42,19 +18,14 @@ export const Portfolio = () => {
           <SectionHeader title="Featured" highlight="Engineering Projects" />
           <Button
             variant="primary"
-            onClick={() =>
-              window.open(
-                "https://github.com/rajarathinam-MurugesaPandiyan",
-                "_blank",
-              )
-            }
+            onClick={() => window.open(PERSONAL_INFO.githubUrl, "_blank")}
           >
             GitHub Projects
           </Button>
         </div>
 
         {/* Large featured project Carousel */}
-        <FeaturedCarousel categories={categories} />
+        <FeaturedCarousel categories={PROJECT_CATEGORIES} />
 
         {/* Colleague Testimonials */}
         <Testimonials />
@@ -89,7 +60,7 @@ export const Portfolio = () => {
 
         {/* Awards grid */}
         <div className="projects-grid awards-grid">
-          {awards.map((award, idx) => (
+          {AWARDS_DATA.map((award, idx) => (
             <div className="project-card award-card" key={idx}>
               <div
                 className="project-image award-image"

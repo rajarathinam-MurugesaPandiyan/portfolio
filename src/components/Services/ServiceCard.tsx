@@ -1,4 +1,4 @@
-import './ServiceCard.css'
+import "./ServiceCard.css";
 
 interface ServiceCardProps {
   title: string;
@@ -10,7 +10,7 @@ export const ServiceCard = ({ title, description }: ServiceCardProps) => {
     <div className="service-card">
       <div className="service-card-inner">
         <h3 className="service-title">{title}</h3>
-        
+
         {/* Mock wireframe lines representing the design asset in Figma */}
         <div className="service-illustration">
           <div className="mock-window">
@@ -19,10 +19,10 @@ export const ServiceCard = ({ title, description }: ServiceCardProps) => {
               <span className="dot dot-y"></span>
               <span className="dot dot-g"></span>
             </div>
-            <div className='description'>{description}</div> 
+            <div className="description">{description}</div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,58 +1,8 @@
 import React, { useState } from "react";
+import { TESTIMONIALS_DATA, PERSONAL_INFO } from "../../constants";
 import "./Testimonials.css";
 
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  company: string;
-  initials: string;
-  avatarBg: string;
-  relationship: string;
-  content: string;
-  highlightTag: string;
-}
-
 export const Testimonials: React.FC = () => {
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: "Pradeep Kumar",
-      role: "SE 2",
-      company: "Tekion Corp",
-      initials: "PK",
-      avatarBg: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-      relationship: "Collaborated on Enterprise Mobile Apps",
-      content:
-        "Rajarathinam is an exceptionally dependable engineer. His work on our Flutter mobile applications drastically improved load times and reliability across complex modules. He combines sharp technical execution with great product intuition.",
-      highlightTag: "Flutter , Dart",
-    },
-    {
-      id: 2,
-      name: "Bhaskar Mavuri",
-      role: "Senior Software Engineer",
-      company: "Virtusa",
-      initials: "BM",
-      avatarBg: "linear-gradient(135deg, #0284C7, #0369A1)",
-      relationship: "Collaborated on Web Applications",
-      content:
-        "Working with Rajarathinam on distributed Go microservices was a seamless experience. He writes clean, idiomatic code, takes system reliability seriously, and has a knack for dissecting tricky architectural bottlenecks under pressure.",
-      highlightTag: "React , Typescript",
-    },
-    {
-      id: 3,
-      name: "Sivakumar MN",
-      role: "Product Engineer",
-      company: "Fibonalabs",
-      initials: "S",
-      avatarBg: "linear-gradient(135deg, #4F46E5, #6366F1)",
-      relationship: "Collaborated on UI/UX & Frontend",
-      content:
-        "Rajarathinam is the kind of frontend engineer designers love working with. He turns intricate Figma prototypes into pixel-perfect, responsive components effortlessly and always thinks about edge cases and user experience.",
-      highlightTag: "Frontend & UI/UX",
-    },
-  ];
-
   const [activeTab, setActiveTab] = useState<number | null>(null);
 
   return (
@@ -82,9 +32,9 @@ export const Testimonials: React.FC = () => {
       </div>
 
       <div className="testimonials-grid">
-        {testimonials.map((item) => (
+        {TESTIMONIALS_DATA.map((item) => (
           <div
-            key={item.id}
+            key={`testimonial-${item.id}`}
             className={`testimonial-card ${activeTab === item.id ? "active" : ""}`}
             onMouseEnter={() => setActiveTab(item.id)}
             onMouseLeave={() => setActiveTab(null)}
@@ -126,7 +76,7 @@ export const Testimonials: React.FC = () => {
 
       <div className="testimonials-cta-container">
         <a
-          href="https://www.linkedin.com/in/rajarathinam-murugesapandiyan"
+          href={PERSONAL_INFO.linkedinUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="linkedin-endorse-btn"

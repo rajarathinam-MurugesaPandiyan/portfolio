@@ -46,7 +46,7 @@
   flex-direction: column;
 }
 
-.description{
+.description {
   padding: 20px;
 }
 
@@ -62,8 +62,12 @@
   height: 8px;
   border-radius: 50%;
 }
-.dot-r { background-color: #FF5F56; }
-.dot-y { background-color: #FFBD2E; }
-.dot-g { background-color: #27C93F; }
-
-
+.dot-r {
+  background-color: #ff5f56;
+}
+.dot-y {
+  background-color: #ffbd2e;
+}
+.dot-g {
+  background-color: #27c93f;
+}
