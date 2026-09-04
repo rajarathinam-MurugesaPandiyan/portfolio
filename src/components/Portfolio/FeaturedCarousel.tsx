@@ -9,35 +9,42 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
     {
       id: 1,
       title: "Xpense",
-      subtitle: "Xpense - Expense Tracking Application",
-      description: "Xpense is a comprehensive expense tracking application designed to help users manage their personal finances effectively. It provides a simple and intuitive interface for tracking daily expenses, setting budgets, and monitoring spending habits over time.",
-      bgColor: "#E2DBD5",
-      textColor: "var(--text-light)"
+      subtitle: "Xpense - Personal Finance & Expense Tracker",
+      description: "A comprehensive expense tracking application designed to help users manage personal finances effectively. Features intuitive analytics for tracking daily spend, budgeting, and financial trajectory over time.",
+      bgColor: "#1E293B",
+      textColor: "#38BDF8",
+      tags: ["React", "TypeScript", "Node.js", "Chart.js"],
+      githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan"
     },
     {
       id: 2,
       title: "OmniStack",
-      subtitle: "OmniStack - SaaS",
-      description: "A comprehensive dashboard for managing personal finances, tracking expenses, and setting goals securely and efficiently.",
-      bgColor: "#1A202C",
-      textColor: "#A3A3EC"
+      subtitle: "OmniStack - Scalable Multi-Tenant SaaS",
+      description: "A comprehensive high-performance backend and dashboard engineered for seamless data pipelines, secure multi-tenant access, and automated workflow orchestrations.",
+      bgColor: "#0F172A",
+      textColor: "#818CF8",
+      tags: ["Go", "Next.js", "PostgreSQL", "Docker", "REST API"],
+      githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan"
     },
     {
       id: 3,
       title: "Streako",
-      subtitle: "Streako - Habit Tracker",
-      description: "Streako is a habit-tracking application designed to help users build positive habits and break negative ones. It provides a simple and intuitive interface for tracking daily habits, setting reminders, and monitoring progress over time.",
-      bgColor: "#E6F4EA",
-      textColor: "#299F6C"
+      subtitle: "Streako - Cross-Platform Habit Tracker",
+      description: "A habit-building mobile application designed to cultivate positive daily routines. Delivers native-feel 60fps animations, streak notifications, and offline data persistence.",
+      bgColor: "#064E3B",
+      textColor: "#34D399",
+      tags: ["Flutter", "Dart", "Provider", "Local SQLite"],
+      githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan"
     }
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 10000); // 10 seconds interval
+    }, 9000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -49,9 +56,17 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
         className="featured-project-card" 
         style={{ backgroundColor: activeSlide.bgColor, transition: 'background-color 0.5s ease' }}
       >
-        <h2 className="lirante-title" style={{ color: activeSlide.textColor, transition: 'color 0.5s ease' }}>
-          {activeSlide.title}
-        </h2>
+        <div className="card-content-overlay">
+          <span className="featured-badge">Featured Case Study</span>
+          <h2 className="lirante-title" style={{ color: activeSlide.textColor, transition: 'color 0.5s ease' }}>
+            {activeSlide.title}
+          </h2>
+          <div className="carousel-slide-tags">
+            {activeSlide.tags.map((tag, tIdx) => (
+              <span key={tIdx} className="slide-tag">{tag}</span>
+            ))}
+          </div>
+        </div>
       </div>
       
       <div className="portfolio-controls">
@@ -62,6 +77,7 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
               className={`dot ${idx === activeIndex ? 'active' : ''}`}
               onClick={() => setActiveIndex(idx)}
               style={{ cursor: 'pointer' }}
+              title={`Slide ${idx + 1}`}
             ></span>
           ))}
         </div>
@@ -69,12 +85,35 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
       
       <div className="portfolio-filter">
         {categories.map((cat, idx) => (
-           <span key={idx} className={`filter-pill ${idx === 0 ? 'active' : ''}`}>{cat}</span>
+          <button 
+            key={idx} 
+            className={`filter-pill ${idx === selectedCategory ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(idx)}
+            type="button"
+          >
+            {cat}
+          </button>
         ))}
       </div>
 
       <div className="featured-info" style={{ animation: 'carouselFadeIn 0.5s ease' }} key={activeIndex}>
-        <h3 className="featured-title">{activeSlide.subtitle} <span className="arrow-badge">↗</span></h3>
+        <h3 className="featured-title">
+          {activeSlide.subtitle}
+          <a 
+            href={activeSlide.githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="arrow-badge"
+            title="View Project on GitHub"
+            aria-label="View Project on GitHub"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        </h3>
         <p className="featured-desc">{activeSlide.description}</p>
       </div>
     </div>
