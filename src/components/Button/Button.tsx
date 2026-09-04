@@ -2,7 +2,7 @@ import './Button.css'
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'outline' | 'secondary' | 'dark' | 'icon';
+  variant?: 'primary' | 'outline';
   onClick?: () => void;
   className?: string;
   hasArrow?: boolean;

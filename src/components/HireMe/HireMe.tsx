@@ -1,6 +1,5 @@
-import { Button } from '../Button/Button'
-import './HireMe.css'
-import resumePdf from '../../assets/rajarathinam.pdf'
+import { Button } from '../Button/Button';
+import './HireMe.css';
 
 export const HireMe = () => {
   return (
@@ -10,25 +9,33 @@ export const HireMe = () => {
           <div className="stats-group">
             <div className="stat-item">
               <h3 className="stat-number">10+</h3>
-              <p className="stat-label">Project Completed</p>
+              <p className="stat-label">Projects Completed</p>
             </div>
             <div className="stat-item">
               <h3 className="stat-number">5+</h3>
               <p className="stat-label">Happy Clients</p>
             </div>
             <div className="stat-item">
-              <h3 className="stat-number">2+</h3>
-              <p className="stat-label">Awards</p>
+              <h3 className="stat-number">2</h3>
+              <p className="stat-label">Honors & Awards</p>
             </div>
           </div>
 
           <div className="hire-me-action">
-            <Button variant="outline" className="hire-me-btn" onClick={() => {
-              const link = document.createElement('a');
-              link.href = resumePdf;
-              link.download = 'Rajarathinam_Resume.pdf';
-              link.click();
-            }}>Hire me</Button>
+            <Button 
+              variant="primary" 
+              className="hire-me-btn" 
+              onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = 'mailto:rajamurugesan217@gmail.com?subject=Opportunity%20Inquiry';
+                }
+              }}
+            >
+              Get in Touch
+            </Button>
           </div>
         </div>
       </div>

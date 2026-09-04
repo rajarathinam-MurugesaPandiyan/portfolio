@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --bg-light: #F4F6F5; /* Slight greyish tint for general background */
-  --bg-dark: #1A1A1A; /* Dark theme sections */
-  --bg-darker: #151515;
-  --primary: #FB7D45;
-  --primary-hover: #E66A35;
-  --text-dark: #111111;
+  --bg-light: #F8FAFC; /* Clean Slate Porcelain */
+  --bg-dark: #0A1128; /* Executive Midnight Navy */
+  --bg-darker: #060A17; /* Abyssal Deep Navy */
+  --primary: #2563EB; /* Executive Cobalt Blue */
+  --primary-hover: #1D4ED8; /* Deep Royal Blue */
+  --primary-rgb: 37, 99, 235; /* RGB for translucent overlays & glows */
+  --text-dark: #0B132B; /* Deep Navy-Black text */
   --text-light: #FFFFFF;
-  --text-muted: #888888;
-  --border-color: #E0E0E0;
-  --border-dark: #333333;
-  
-  --font-family: 'Outfit', sans-serif;
+  --text-muted: #64748B; /* Professional Slate */
+  --border-color: #E2E8F0; /* Clean Slate border */
+  --border-dark: #1C2541; /* Executive Navy border */
+
+  --font-family: "Outfit", sans-serif;
 }
 
 * {

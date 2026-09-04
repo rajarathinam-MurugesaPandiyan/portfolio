@@ -21,7 +21,7 @@
 .btn-primary:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(251, 125, 69, 0.3);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.35);
 }
 
 .btn-outline {
@@ -35,29 +35,7 @@
   color: var(--text-light);
 }
 
-.btn-dark {
-  background-color: transparent;
-  color: var(--text-light);
-  border-color: rgba(255, 255, 255, 0.2);
-}
 
-.btn-dark:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.btn-icon {
-  padding: 14px;
-  border-radius: 50%;
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  justify-content: center;
-  align-items: center;
-}
-
-.btn-icon:hover {
-  background-color: var(--primary);
-}
 
 .btn-arrow {
   transition: transform 0.3s ease;

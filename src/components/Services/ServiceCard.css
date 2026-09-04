@@ -33,7 +33,7 @@
 }
 
 .service-card:hover .service-illustration {
-  border-color: rgba(251, 125, 69, 0.3);
+  border-color: rgba(var(--primary-rgb), 0.35);
 }
 
 .mock-window {
@@ -66,15 +66,4 @@
 .dot-y { background-color: #FFBD2E; }
 .dot-g { background-color: #27C93F; }
 
-.mock-body {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 
-.mock-line {
-  height: 8px;
-  background-color: #333;
-  border-radius: 4px;
-}
