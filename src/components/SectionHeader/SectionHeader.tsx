@@ -1,13 +1,18 @@
-import './SectionHeader.css'
+import "./SectionHeader.css";
 
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   highlight?: string;
-  theme?: 'light' | 'dark';
+  theme?: "light" | "dark";
 }
 
-export const SectionHeader = ({ title, subtitle, highlight, theme = 'light' }: SectionHeaderProps) => {
+export const SectionHeader = ({
+  title,
+  subtitle,
+  highlight,
+  theme = "light",
+}: SectionHeaderProps) => {
   return (
     <div className={`section-header theme-${theme}`}>
       <h2 className="section-title">
@@ -15,5 +20,5 @@ export const SectionHeader = ({ title, subtitle, highlight, theme = 'light' }: S
       </h2>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
     </div>
-  )
-}
+  );
+};

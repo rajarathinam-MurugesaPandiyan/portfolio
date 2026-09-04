@@ -72,7 +72,7 @@
 }
 
 .testimonial-stars {
-  color: #F59E0B;
+  color: #f59e0b;
   font-size: 15px;
   letter-spacing: 2px;
 }
@@ -152,7 +152,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: #10B981;
+  background-color: #10b981;
   color: #ffffff;
   font-size: 10px;
   font-weight: bold;
@@ -215,8 +215,6 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.25);
 }
-
-
 
 @media (max-width: 960px) {
   .testimonials-grid {

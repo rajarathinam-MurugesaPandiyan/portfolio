@@ -1,39 +1,39 @@
 import { Button } from "../Button/Button";
+import { HERO_DATA, PERSONAL_INFO, ASSETS } from "../../constants";
 import "./Hero.css";
-// @ts-ignore
-import portfolioImg from "../../assets/portfolio.jpg";
-import resumePdf from "../../assets/rajarathinam.pdf";
 
 export const Hero = () => {
   return (
     <section className="hero-section" id="home">
       <div className="container hero-container">
         <div className="hero-left">
-          <div className="hello-badge">Hello!</div>
+          <div className="hello-badge">{HERO_DATA.badge}</div>
           <h1 className="hero-title">
-            I'm <span className="highlight-orange">Rajarathinam</span>,<br />
-            Software Engineer
+            {HERO_DATA.titlePrefix}{" "}
+            <span className="highlight-orange">{HERO_DATA.highlightName}</span>,
+            <br />
+            {HERO_DATA.role}
           </h1>
 
           <div className="hero-quote">
             <div className="quote-icon">"</div>
             <p>
-              Clean code and smart architecture
-              <br />
-              that scaled our product effortlessly.
-              <br />
-              Loved the results
-            </p>{" "}
+              {HERO_DATA.quote.map((line, idx) => (
+                <span key={idx}>
+                  {line}
+                  {idx < HERO_DATA.quote.length - 1 && <br />}
+                </span>
+              ))}
+            </p>
           </div>
         </div>
 
         <div className="hero-center">
           <div className="hero-image-wrapper">
             <div className="orange-circle"></div>
-            {/* Image provided by the user */}
             <img
-              src={portfolioImg}
-              alt="Rajarathinam, Software Engineer"
+              src={ASSETS.portfolioImg}
+              alt={`${PERSONAL_INFO.name}, ${PERSONAL_INFO.role}`}
               className="hero-image"
             />
           </div>
@@ -60,8 +60,8 @@ export const Hero = () => {
               variant="outline"
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = resumePdf;
-                link.download = "Rajarathinam_Resume.pdf";
+                link.href = ASSETS.resumePdf;
+                link.download = PERSONAL_INFO.resumeDownloadName;
                 link.click();
               }}
             >
@@ -71,7 +71,7 @@ export const Hero = () => {
 
           <div className="hero-social-pills">
             <a
-              href="https://github.com/rajarathinam-MurugesaPandiyan"
+              href={PERSONAL_INFO.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-pill"
@@ -88,7 +88,7 @@ export const Hero = () => {
               <span>GitHub</span>
             </a>
             <a
-              href="https://www.linkedin.com/in/rajarathinam-murugesapandiyan"
+              href={PERSONAL_INFO.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-pill"
@@ -105,7 +105,7 @@ export const Hero = () => {
               <span>LinkedIn</span>
             </a>
             <a
-              href="https://www.youtube.com/channel/UCMuVmUfK1Hu9_zDXvOw5nYw"
+              href={PERSONAL_INFO.youtubeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-pill"
@@ -126,9 +126,9 @@ export const Hero = () => {
 
         <div className="hero-right">
           <div className="experience-badge">
-            <div className="stars">★★★★★</div>
+            <div className="stars">{HERO_DATA.experienceStars}</div>
             <div className="years">
-              <span className="years-number">4.3</span>
+              <span className="years-number">{HERO_DATA.experienceNumber}</span>
               <span className="years-text">
                 Years
                 <br />

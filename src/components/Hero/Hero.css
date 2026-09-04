@@ -124,14 +124,15 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #34D399;
+  background-color: #34d399;
   box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
   display: inline-block;
   animation: pulseStatusDot 2s infinite ease-in-out;
 }
 
 @keyframes pulseStatusDot {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
