@@ -33,6 +33,7 @@ export const Hero = () => {
             <div className="orange-circle"></div>
             <img
               src={ASSETS.portfolioImg}
+              draggable={false}
               alt={`${PERSONAL_INFO.name}, ${PERSONAL_INFO.role}`}
               className="hero-image"
             />

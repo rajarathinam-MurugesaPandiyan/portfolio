@@ -20,6 +20,62 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
 
   const activeSlide = slides[activeIndex];
 
+  const handleCategoryClick = (idx: number, cat: string) => {
+    setSelectedCategory(idx);
+    const catLower = cat.toLowerCase();
+    const matchIdx = slides.findIndex((slide) => {
+      if (
+        catLower.includes("react") &&
+        slide.tags.some((t) => t.toLowerCase().includes("react"))
+      )
+        return true;
+      if (
+        catLower.includes("go") &&
+        slide.tags.some((t) => t.toLowerCase().includes("go"))
+      )
+        return true;
+      if (
+        catLower.includes("flutter") &&
+        slide.tags.some((t) => t.toLowerCase().includes("flutter"))
+      )
+        return true;
+      if (
+        catLower.includes("api") &&
+        slide.tags.some(
+          (t) =>
+            t.toLowerCase().includes("api") || t.toLowerCase().includes("rest"),
+        )
+      )
+        return true;
+      if (
+        catLower.includes("cloud") &&
+        (slide.title.toLowerCase().includes("cloud") ||
+          slide.tags.some(
+            (t) =>
+              t.toLowerCase().includes("cloud") ||
+              t.toLowerCase().includes("docker"),
+          ))
+      )
+        return true;
+      if (
+        catLower.includes("ui") &&
+        slide.tags.some(
+          (t) =>
+            t.toLowerCase().includes("ui") ||
+            t.toLowerCase().includes("mobile"),
+        )
+      )
+        return true;
+      return false;
+    });
+    if (matchIdx !== -1) {
+      setActiveIndex(matchIdx);
+    }
+  };
+
+  const statusClass =
+    activeSlide.status === "Live" ? "status-live" : "status-in-progress";
+
   return (
     <div className="featured-project">
       <div
@@ -30,7 +86,16 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
         }}
       >
         <div className="card-content-overlay">
-          <span className="featured-badge">Featured Case Study</span>
+          <div className="card-top-badges">
+            <span className="featured-badge">Featured Case Study</span>
+            <span
+              className={`project-status-badge ${statusClass}`}
+              data-testid="carousel-card-status"
+            >
+              <span className="status-dot"></span>
+              <span>{activeSlide.statusBadge}</span>
+            </span>
+          </div>
           <h2
             className="lirante-title"
             style={{
@@ -69,7 +134,7 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
           <button
             key={idx}
             className={`filter-pill ${idx === selectedCategory ? "active" : ""}`}
-            onClick={() => setSelectedCategory(idx)}
+            onClick={() => handleCategoryClick(idx, cat)}
             type="button"
           >
             {cat}
@@ -83,7 +148,14 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
           style={{ animation: "carouselFadeIn 0.5s ease" }}
         >
           <h3 className="featured-title">
-            {activeSlide.subtitle}
+            <span>{activeSlide.subtitle}</span>
+            <span
+              className={`project-status-pill ${statusClass}`}
+              data-testid="carousel-info-status"
+            >
+              <span className="status-dot"></span>
+              <span>{activeSlide.statusBadge}</span>
+            </span>
             <a
               href={activeSlide.githubUrl}
               target="_blank"

@@ -221,11 +221,15 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
 // ============================================================================
 // 7. FEATURED PROJECTS & CAROUSEL COMPONENT
 // ============================================================================
+export type ProjectStatus = "Live" | "In Progress" | "Under Development";
+
 export interface ProjectSlide {
   id: number;
   title: string;
   subtitle: string;
   description: string;
+  status: ProjectStatus;
+  statusBadge: string;
   bgColor: string;
   textColor: string;
   tags: string[];
@@ -244,35 +248,61 @@ export const PROJECT_CATEGORIES: string[] = [
 export const FEATURED_SLIDES: ProjectSlide[] = [
   {
     id: 1,
-    title: "Xpense",
-    subtitle: "Xpense - Personal Finance & Expense Tracker",
+    title: "Xpense Cloud Mobile",
+    subtitle: "Xpense Cloud - Mobile App using Flutter",
     description:
-      "A comprehensive expense tracking application designed to help users manage personal finances effectively. Features intuitive analytics for tracking daily spend, budgeting, and financial trajectory over time.",
-    bgColor: "#1E293B",
+      "A cross-platform personal finance mobile application built with Flutter & Dart, actively undergoing a comprehensive architecture revamp. Engineered with high-efficiency expense tracking, offline SQLite caching, cloud synchronization, and responsive 60fps data visualization.",
+    status: "In Progress",
+    statusBadge: "Under Development • Revamp",
+    bgColor: "#0F2942",
     textColor: "#38BDF8",
-    tags: ["React", "TypeScript", "Node.js", "Chart.js"],
+    tags: [
+      "Flutter",
+      "Dart",
+      "Mobile App",
+      "Revamp",
+      "State Management",
+      "REST API",
+    ],
     githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan",
   },
   {
     id: 2,
-    title: "OmniStack",
-    subtitle: "OmniStack - Scalable Multi-Tenant SaaS",
+    title: "Xpense Cloud Backend",
+    subtitle: "Xpense Cloud - Backend Services using Go",
     description:
-      "A comprehensive high-performance backend and dashboard engineered for seamless data pipelines, secure multi-tenant access, and automated workflow orchestrations.",
-    bgColor: "#0F172A",
-    textColor: "#818CF8",
-    tags: ["Go", "Next.js", "PostgreSQL", "Docker", "REST API"],
-    githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan",
+      "A high-performance cloud backend written in Go, currently undergoing a full architecture revamp for high-concurrency microservices. Features modular RESTful APIs, JWT/OAuth2 authentication, PostgreSQL with GORM, and Docker containerized deployments.",
+    status: "In Progress",
+    statusBadge: "Under Development • Revamp",
+    bgColor: "#111827",
+    textColor: "#00ADD8",
+    tags: ["Go", "PostgreSQL", "REST API", "Docker", "Microservices", "Revamp"],
+    githubUrl: "https://dev.xpense-cloud.in/ping",
   },
   {
     id: 3,
-    title: "Streako",
-    subtitle: "Streako - Cross-Platform Habit Tracker",
+    title: "Xpense",
+    subtitle: "Xpense - Personal Finance & Expense Tracker",
     description:
-      "A habit-building mobile application designed to cultivate positive daily routines. Delivers native-feel 60fps animations, streak notifications, and offline data persistence.",
-    bgColor: "#064E3B",
-    textColor: "#34D399",
-    tags: ["Flutter", "Dart", "Provider", "Local SQLite"],
+      "A comprehensive expense tracking application designed to help users manage personal finances effectively. Features intuitive analytics for tracking daily spend, budgeting, and financial trajectory over time.",
+    status: "Live",
+    statusBadge: "Live",
+    bgColor: "#1E293B",
+    textColor: "#38BDF8",
+    tags: ["React", "TypeScript"],
+    githubUrl: "https://xpense-cloud.in/",
+  },
+  {
+    id: 4,
+    title: "Campus Desk",
+    subtitle: "Campus Desk - School ERP Management System",
+    description:
+      "A comprehensive school ERP management platform engineered with a high-performance Go backend and modern responsive frontend. Streamlines student administration, attendance, academic records, fee tracking, and institutional workflows.",
+    status: "Under Development",
+    statusBadge: "Under Development",
+    bgColor: "#1A1E2E",
+    textColor: "#818CF8",
+    tags: ["Go", "Frontend", "React", "PostgreSQL", "REST API", "School ERP"],
     githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan",
   },
 ];
