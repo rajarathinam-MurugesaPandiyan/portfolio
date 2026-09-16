@@ -13,7 +13,7 @@ import fibonalabsLogo from "./assets/fibonalabs.jpeg";
 import trophyAnim from "./assets/Trophy.json";
 import trophyAnimation from "./assets/trophywon.json";
 import resumePdf from "./assets/rajarathinam.pdf";
-import portfolioImg from "./assets/portfolio.jpg";
+import portfolioImg from "./assets/portfolio.png";
 
 export const ASSETS = {
   virtusaLogo,
@@ -299,7 +299,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: "SE 2",
     company: "Tekion Corp",
     initials: "PK",
-    avatarBg: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+    avatarBg: "linear-gradient(135deg, #FB7D45, #E66A35)",
     relationship: "Collaborated on Enterprise Mobile Apps",
     content:
       "Rajarathinam is an exceptionally dependable engineer. His work on our Flutter mobile applications drastically improved load times and reliability across complex modules. He combines sharp technical execution with great product intuition.",
@@ -311,7 +311,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: "Senior Software Engineer",
     company: "Virtusa",
     initials: "BM",
-    avatarBg: "linear-gradient(135deg, #0284C7, #0369A1)",
+    avatarBg: "linear-gradient(135deg, #F59E0B, #D97706)",
     relationship: "Collaborated on Web Applications",
     content:
       "Working with Rajarathinam on frontend architecture and enterprise web apps was a seamless experience. He writes clean, robust code, handles complex routing and authentication with precision, and has a knack for dissecting tricky architectural challenges under pressure.",
@@ -323,7 +323,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: "Product Engineer",
     company: "Fibonalabs",
     initials: "S",
-    avatarBg: "linear-gradient(135deg, #4F46E5, #6366F1)",
+    avatarBg: "linear-gradient(135deg, #EA580C, #C2410C)",
     relationship: "Collaborated on UI/UX & Frontend",
     content:
       "Rajarathinam is an outspoken, hardworking, and broad-minded person who is always eager to learn and take on new challenges. His ability to learn quickly, adapt to new situations, and approach things with a positive mindset makes him a great person to work with.",
@@ -335,7 +335,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: "Junior Engineer",
     company: "Calibraint",
     initials: "AS",
-    avatarBg: "linear-gradient(135deg, #4F46E5, #6366F1)",
+    avatarBg: "linear-gradient(135deg, #F97316, #EA580C)",
     relationship: "Collaborated on Mobile Applications",
     content:
       "You were not only a colleague to me, but also you thought me how to think, how to approach problems. You were a senior but you helped me even in small doubts without any hesitation. I still tell members abt you, how you were standing with me even in tough situation of our project. And even if we apart ways for our future career, you gave me the comfort to reach out to you whenever I need any help from you. I'm happy that I got to work with one of the best persons with kind personality✨",
@@ -361,7 +361,7 @@ export const AWARDS_DATA: AwardItem[] = [
     category: "Tekion Corp",
     author: "Hackathon & Innovation Excellence",
     date: "2024",
-    bgColor: "#0A1128",
+    bgColor: "#141721",
     animation: trophyAnimation,
   },
   {
@@ -369,7 +369,7 @@ export const AWARDS_DATA: AwardItem[] = [
     category: "Fibonalabs",
     author: "Multi-Stack Engineering Contribution",
     date: "Dec 2021",
-    bgColor: "#1E293B",
+    bgColor: "#1E2230",
     animation: trophyAnim,
   },
 ];
