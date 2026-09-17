@@ -4,9 +4,9 @@
   --bg-light: #f8fafc; /* Clean Slate Porcelain */
   --bg-dark: #0a1128; /* Executive Midnight Navy */
   --bg-darker: #060a17; /* Abyssal Deep Navy */
-  --primary: #2563eb; /* Executive Cobalt Blue */
-  --primary-hover: #1d4ed8; /* Deep Royal Blue */
-  --primary-rgb: 37, 99, 235; /* RGB for translucent overlays & glows */
+  --primary: #FB7D45; /* Vibrant Orange */
+  --primary-hover: #E66A35; /* Deep Orange Hover */
+  --primary-rgb: 251, 125, 69; /* RGB for translucent overlays & glows */
   --text-dark: #0b132b; /* Deep Navy-Black text */
   --text-light: #ffffff;
   --text-muted: #64748b; /* Professional Slate */
