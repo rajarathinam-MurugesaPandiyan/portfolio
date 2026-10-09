@@ -66,11 +66,12 @@ export const Portfolio = () => {
           {AWARDS_DATA.map((award, idx) => (
             <div className="project-card award-card" key={idx}>
               <div className="project-image award-image">
-                <div style={{ width: "65%", height: "65%" }}>
+                <div className="award-lottie-wrapper">
                   <Player
                     autoplay
                     loop
                     src={award.animation}
+                    className="award-lottie-player"
                     style={{ height: "100%", width: "100%" }}
                   />
                 </div>

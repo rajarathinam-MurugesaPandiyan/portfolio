@@ -278,6 +278,12 @@
   color: var(--text-muted);
 }
 
+.awards-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+  margin: 0 auto;
+}
+
 .award-card {
   transition:
     transform 0.3s ease,
@@ -288,16 +294,56 @@
   transform: translateY(-4px);
 }
 
+.award-card .award-image,
+.award-card .project-image.award-image,
 .award-image {
   border-radius: 24px;
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border-color);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.award-card:hover .award-image {
+  border-color: rgba(var(--primary-rgb), 0.4);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(var(--primary-rgb), 0.15);
+}
+
+.award-lottie-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 210px;
+  max-height: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
   position: relative;
-  transition: all 0.35s ease;
+}
+
+.award-lottie-player {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.award-lottie-wrapper svg,
+.award-lottie-player svg {
+  margin: 0 auto !important;
+  display: block !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 
 .featured-info {
@@ -435,6 +481,13 @@
 @media (max-width: 960px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
   }
 }
 
