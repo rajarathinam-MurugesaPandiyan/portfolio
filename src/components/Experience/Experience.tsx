@@ -1,5 +1,5 @@
 import { SectionHeader } from "../SectionHeader/SectionHeader";
-import { EXPERIENCES_DATA } from "../../constants";
+import { EXPERIENCES_DATA, EXPERIENCE_HEADER } from "../../constants";
 import "./Experience.css";
 
 export const Experience = () => {
@@ -7,7 +7,10 @@ export const Experience = () => {
     <section className="experience-section" id="experience">
       <div className="container">
         <div className="experience-header">
-          <SectionHeader title="My Work" highlight="Experience" />
+          <SectionHeader
+            title={EXPERIENCE_HEADER.title}
+            highlight={EXPERIENCE_HEADER.highlight}
+          />
         </div>
 
         <div className="timeline-container">

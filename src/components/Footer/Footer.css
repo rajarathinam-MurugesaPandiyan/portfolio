@@ -1,12 +1,14 @@
 .footer-section {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-darker);
   color: var(--text-light);
   padding: 80px 0 30px;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
-  margin-top: -40px; /* pull up into previous section if needed */
+  margin-top: -40px;
   position: relative;
   z-index: 5;
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .footer-connect {
@@ -25,12 +27,15 @@
   font-size: 48px;
   font-weight: 600;
   margin-bottom: 12px;
+  color: var(--text-light);
+  transition: color 0.35s ease;
 }
 
 .connect-subtitle {
   color: var(--text-muted);
   font-size: 16px;
   line-height: 1.5;
+  transition: color 0.35s ease;
 }
 
 .footer-hire-btn {
@@ -41,8 +46,9 @@
 
 .footer-divider {
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--border-color);
   margin-bottom: 60px;
+  transition: background-color 0.35s ease;
 }
 
 .footer-main {
@@ -58,10 +64,11 @@
 }
 
 .footer-desc {
-  color: #aaaaaa;
+  color: var(--text-muted);
   line-height: 1.6;
   font-size: 14px;
   margin-bottom: 24px;
+  transition: color 0.35s ease;
 }
 
 .social-links {
@@ -73,13 +80,13 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: var(--border-dark);
+  background-color: var(--bg-card);
   color: var(--text-light);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
 }
 
@@ -101,6 +108,7 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 24px;
+  transition: color 0.35s ease;
 }
 
 .link-group ul li {
@@ -109,7 +117,7 @@
 
 .link-group ul li a,
 .link-group ul li {
-  color: #aaaaaa;
+  color: var(--text-muted);
   font-size: 14px;
   transition: color 0.3s ease;
 }
@@ -119,7 +127,7 @@
 }
 
 .footer-contact-link {
-  color: #aaaaaa;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -137,23 +145,26 @@
 .footer-resume-link {
   color: var(--primary) !important;
   font-weight: 500;
+  transition: color 0.35s ease;
 }
 
 /* Quick Message Form */
 .footer-quick-desc {
-  color: #aaaaaa;
+  color: var(--text-muted);
   font-size: 13px;
   margin-bottom: 16px;
   line-height: 1.4;
+  transition: color 0.35s ease;
 }
 
 .newsletter-input-group {
   display: flex;
-  background-color: #f8f8f8;
+  background-color: var(--bg-card);
   border-radius: 12px;
   overflow: hidden;
   height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  transition: all 0.35s ease;
 }
 
 .newsletter-input {
@@ -164,7 +175,7 @@
   font-size: 14px;
   outline: none;
   background-color: transparent;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .newsletter-submit {
@@ -186,10 +197,11 @@
 
 .footer-bottom {
   text-align: center;
-  color: #666666;
+  color: var(--text-muted);
   font-size: 14px;
   padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
+  transition: border-color 0.35s ease, color 0.35s ease;
 }
 
 @media (max-width: 960px) {

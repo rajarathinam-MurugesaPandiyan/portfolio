@@ -15,6 +15,9 @@ describe("App Root Component", () => {
     // Services section exists
     expect(container.querySelector("#service")).toBeInTheDocument();
 
+    // Tech Stack section exists
+    expect(container.querySelector("#skills")).toBeInTheDocument();
+
     // Hire Me section exists
     expect(container.querySelector(".hire-me-section")).toBeInTheDocument();
 

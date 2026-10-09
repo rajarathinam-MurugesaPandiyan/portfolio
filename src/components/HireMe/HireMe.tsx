@@ -1,5 +1,5 @@
 import { Button } from "../Button/Button";
-import { HIRE_ME_STATS, PERSONAL_INFO } from "../../constants";
+import { HIRE_ME_STATS, HIRE_ME_DATA, PERSONAL_INFO } from "../../constants";
 import "./HireMe.css";
 
 export const HireMe = () => {
@@ -25,11 +25,11 @@ export const HireMe = () => {
                 if (element) {
                   element.scrollIntoView({ behavior: "smooth" });
                 } else {
-                  window.location.href = `mailto:${PERSONAL_INFO.email}?subject=Opportunity%20Inquiry`;
+                  window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(HIRE_ME_DATA.emailSubject)}`;
                 }
               }}
             >
-              Get in Touch
+              {HIRE_ME_DATA.ctaText}
             </Button>
           </div>
         </div>

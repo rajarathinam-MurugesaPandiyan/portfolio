@@ -1,8 +1,9 @@
 .experience-section {
   padding: 100px 0;
-  background-color: var(--bg-light);
+  background-color: var(--bg-main);
   position: relative;
   z-index: 8;
+  transition: background-color 0.35s ease;
 }
 
 .experience-header {
@@ -27,6 +28,7 @@
   width: 2px;
   background: var(--border-color);
   z-index: 1;
+  transition: background-color 0.35s ease;
 }
 
 .timeline-item {
@@ -46,26 +48,31 @@
   height: 20px;
   border-radius: 50%;
   background-color: var(--primary);
-  border: 4px solid var(--bg-light);
+  border: 4px solid var(--bg-main);
   z-index: 2;
   box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.25);
+  transition: all 0.35s ease;
 }
 
 .timeline-content {
-  background: white;
+  background: var(--bg-card);
   padding: 32px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
-  border: 1px solid transparent;
+    box-shadow 0.3s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+  border: 1px solid var(--border-color);
 }
 
 .timeline-item:hover .timeline-content {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-  border-color: rgba(var(--primary-rgb), 0.35);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(var(--primary-rgb), 0.2);
+  border-color: var(--primary);
 }
 
 .timeline-header {
@@ -86,15 +93,15 @@
   width: 52px;
   height: 52px;
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: var(--bg-card-hover, #1e293b);
   border: 1px solid var(--border-color);
   padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(10, 17, 40, 0.06);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .timeline-item:hover .company-logo-wrapper {
@@ -116,13 +123,14 @@
 .timeline-date {
   display: inline-block;
   padding: 6px 14px;
-  background-color: rgba(var(--primary-rgb), 0.1);
+  background-color: rgba(var(--primary-rgb), 0.12);
   color: var(--primary);
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid rgba(var(--primary-rgb), 0.18);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
   white-space: nowrap;
+  transition: all 0.35s ease;
 }
 
 .timeline-role {
@@ -130,18 +138,21 @@
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 2px;
+  transition: color 0.35s ease;
 }
 
 .timeline-company {
   font-size: 16px;
   color: var(--text-muted);
   font-weight: 500;
+  transition: color 0.35s ease;
 }
 
 .timeline-desc {
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 16px;
+  transition: color 0.35s ease;
 }
 
 .timeline-skills {
@@ -154,17 +165,18 @@
   display: inline-block;
   padding: 4px 12px;
   border-radius: 12px;
-  background-color: rgba(var(--primary-rgb), 0.08);
-  color: var(--primary);
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 500;
-  border: 1px solid rgba(var(--primary-rgb), 0.15);
-  transition: all 0.2s ease;
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  transition: all 0.25s ease;
 }
 
 .skill-pill:hover {
   background-color: var(--primary);
-  color: var(--text-light);
+  color: #ffffff;
+  border-color: var(--primary);
   transform: translateY(-1px);
 }
 

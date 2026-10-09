@@ -13,7 +13,11 @@ import fibonalabsLogo from "./assets/fibonalabs.jpeg";
 import trophyAnim from "./assets/Trophy.json";
 import trophyAnimation from "./assets/trophywon.json";
 import resumePdf from "./assets/rajarathinam.pdf";
-import portfolioImg from "./assets/portfolio.jpg";
+import portfolioImg from "./assets/portfolio.png";
+import dartImg from "./assets/dart.jpeg";
+import goImg from "./assets/go.png";
+import jsImg from "./assets/javascript.png";
+import tsImg from "./assets/typescript.png";
 
 export const ASSETS = {
   virtusaLogo,
@@ -24,6 +28,10 @@ export const ASSETS = {
   trophyAnimation,
   resumePdf,
   portfolioImg,
+  dartImg,
+  goImg,
+  jsImg,
+  tsImg,
 };
 
 // ============================================================================
@@ -55,10 +63,19 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { id: "home", label: "Home" },
   { id: "service", label: "Services" },
+  { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
   { id: "project", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
+
+export const HEADER_DATA = {
+  logoIcon: "RR",
+  logoText: "Rajarathinam",
+  githubLabel: "GitHub",
+  githubMobileLabel: "GitHub Profile",
+  menuAriaLabel: "Toggle navigation menu",
+};
 
 // ============================================================================
 // 3. HERO COMPONENT
@@ -76,6 +93,11 @@ export const HERO_DATA = {
   experienceStars: "★★★★★",
   experienceNumber: PERSONAL_INFO.experienceYears,
   experienceLabel: "Years\nExperience",
+  ctaProjects: "View Projects",
+  ctaResume: "Download CV",
+  githubTitle: "GitHub Profile",
+  linkedinTitle: "LinkedIn Profile",
+  youtubeTitle: "YouTube Channel",
 };
 
 // ============================================================================
@@ -116,6 +138,191 @@ export const SERVICES_LIST: ServiceItem[] = [
 ];
 
 // ============================================================================
+// 4B. TECH STACK & PROGRAMMING LANGUAGES COMPONENT
+// ============================================================================
+export type TechCategory = "all" | "language" | "framework" | "backend";
+
+export interface TechItem {
+  id: string;
+  name: string;
+  category: "language" | "framework" | "backend";
+  categoryLabel: string;
+  iconType: "image" | "svg";
+  imageSrc?: string;
+  svgIcon?: string;
+  level: string;
+  experience: string;
+  description: string;
+  tags: string[];
+  featured?: boolean;
+}
+
+export const TECH_STACK_HEADER = {
+  badge: "Technical Arsenal",
+  title: "Known Languages &",
+  highlight: "Frameworks",
+  subtitle:
+    "Production-proven programming languages, cross-platform frameworks, and scalable cloud technologies engineered across enterprise systems and high-performance apps.",
+};
+
+export const TECH_STACK_HIGHLIGHTS = [
+  { label: "Core Languages", value: "Go • TypeScript • JavaScript • Dart" },
+  { label: "Production Scale", value: "4+ Years Full-Stack & Mobile" },
+  { label: "Architecture", value: "Microservices • REST • Event-Driven" },
+];
+
+export const TECH_STACK_TABS = [
+  { id: "all", label: "All Technologies" },
+  { id: "language", label: "Programming Languages" },
+  { id: "framework", label: "Frameworks & UI" },
+  { id: "backend", label: "Backend, Cloud & DB" },
+];
+
+export const TECH_STACK_ITEMS: TechItem[] = [
+  // Programming Languages (With user's uploaded images)
+  {
+    id: "golang",
+    name: "Go (Golang)",
+    category: "language",
+    categoryLabel: "Programming Language",
+    iconType: "image",
+    imageSrc: goImg,
+    level: "Advanced",
+    experience: "3+ Years",
+    description:
+      "High-concurrency microservices, modular REST APIs, Goroutines & GORM persistence.",
+    tags: ["Goroutines", "Gin / Fiber", "Microservices", "GORM"],
+    featured: true,
+  },
+  {
+    id: "typescript",
+    name: "TypeScript",
+    category: "language",
+    categoryLabel: "Programming Language",
+    iconType: "image",
+    imageSrc: tsImg,
+    level: "Advanced",
+    experience: "4+ Years",
+    description:
+      "Enterprise frontend architectures, strict type systems, modular routing & scalable SPAs.",
+    tags: ["Strict Typing", "Generics", "React / Next.js", "Design Systems"],
+    featured: true,
+  },
+  {
+    id: "javascript",
+    name: "JavaScript",
+    category: "language",
+    categoryLabel: "Programming Language",
+    iconType: "image",
+    imageSrc: jsImg,
+    level: "Advanced",
+    experience: "4+ Years",
+    description:
+      "Modern ES2024+ web engineering, asynchronous event loops, DOM performance & APIs.",
+    tags: ["ES2024+", "Async / Await", "Web APIs", "Event Loop"],
+    featured: true,
+  },
+  {
+    id: "dart",
+    name: "Dart",
+    category: "language",
+    categoryLabel: "Programming Language",
+    iconType: "image",
+    imageSrc: dartImg,
+    level: "Advanced",
+    experience: "3.5+ Years",
+    description:
+      "Resilient cross-platform mobile architecture, sound null safety & reactive streams.",
+    tags: ["Sound Null Safety", "Async Streams", "Mobile Architecture", "Dart FFI"],
+    featured: true,
+  },
+
+  // Frameworks & UI
+  {
+    id: "flutter",
+    name: "Flutter",
+    category: "framework",
+    categoryLabel: "Mobile Framework",
+    iconType: "svg",
+    svgIcon: "flutter",
+    level: "Production Grade",
+    experience: "3.5+ Years",
+    description:
+      "Production mobile apps, crypto wallet biometrics, offline SQLite & 60fps UX.",
+    tags: ["Bloc / Riverpod", "Biometrics", "Offline SQLite", "Platform Channels"],
+    featured: true,
+  },
+  {
+    id: "react",
+    name: "React.js",
+    category: "framework",
+    categoryLabel: "Frontend Library",
+    iconType: "svg",
+    svgIcon: "react",
+    level: "Production Grade",
+    experience: "4+ Years",
+    description:
+      "Enterprise SPA workflows, OAuth2 auth guards, custom hooks & design systems.",
+    tags: ["Custom Hooks", "Context API", "React Router", "Vite SPAs"],
+    featured: true,
+  },
+  {
+    id: "gin-go",
+    name: "Gin & Go Backend",
+    category: "framework",
+    categoryLabel: "Backend Framework",
+    iconType: "svg",
+    svgIcon: "server",
+    level: "Advanced",
+    experience: "3+ Years",
+    description:
+      "High-throughput HTTP microservices, middleware pipelines, JWT auth & REST routing.",
+    tags: ["RESTful APIs", "Middleware", "JWT Auth", "GORM ORM"],
+  },
+
+  // Backend, Cloud & Database
+  {
+    id: "kafka",
+    name: "Apache Kafka",
+    category: "backend",
+    categoryLabel: "Event Streaming",
+    iconType: "svg",
+    svgIcon: "kafka",
+    level: "Proficient",
+    experience: "2+ Years",
+    description:
+      "Real-time event streaming pipelines, pub/sub messaging & decoupled services.",
+    tags: ["Event Streaming", "Pub / Sub", "Consumer Groups", "Data Pipelines"],
+  },
+  {
+    id: "postgresql",
+    name: "PostgreSQL & Databases",
+    category: "backend",
+    categoryLabel: "Relational DB",
+    iconType: "svg",
+    svgIcon: "database",
+    level: "Advanced",
+    experience: "3+ Years",
+    description:
+      "Relational schema modeling, index tuning, ACID transactions & SQLite caching.",
+    tags: ["Schema Modeling", "GORM ORM", "Indexing", "SQLite Caching"],
+  },
+  {
+    id: "docker",
+    name: "Docker & Cloud",
+    category: "backend",
+    categoryLabel: "DevOps & Cloud",
+    iconType: "svg",
+    svgIcon: "docker",
+    level: "Proficient",
+    experience: "3+ Years",
+    description:
+      "Multi-stage container builds, microservice orchestration & CI/CD automation.",
+    tags: ["Multi-Stage Builds", "Docker Compose", "Containerization", "CI/CD"],
+  },
+];
+
+// ============================================================================
 // 5. HIRE ME / STATS COMPONENT
 // ============================================================================
 export interface StatItem {
@@ -129,6 +336,11 @@ export const HIRE_ME_STATS: StatItem[] = [
   { number: "2", label: "Honors & Awards" },
 ];
 
+export const HIRE_ME_DATA = {
+  ctaText: "Get in Touch",
+  emailSubject: "Opportunity Inquiry",
+};
+
 // ============================================================================
 // 6. WORK EXPERIENCE COMPONENT
 // ============================================================================
@@ -140,6 +352,11 @@ export interface ExperienceItem {
   description: string;
   skills: string[];
 }
+
+export const EXPERIENCE_HEADER = {
+  title: "My Work",
+  highlight: "Experience",
+};
 
 export const EXPERIENCES_DATA: ExperienceItem[] = [
   {
@@ -236,6 +453,17 @@ export interface ProjectSlide {
   githubUrl: string;
 }
 
+export const PORTFOLIO_HEADER = {
+  title: "Featured",
+  highlight: "Engineering Projects",
+  ctaButtonText: "GitHub Projects",
+};
+
+export const CAROUSEL_CONSTANTS = {
+  badgeText: "Featured Case Study",
+  viewGithubTitle: "View Project on GitHub",
+};
+
 export const PROJECT_CATEGORIES: string[] = [
   "React & Web Apps",
   "Go & Scalable Systems",
@@ -322,33 +550,18 @@ export interface TestimonialItem {
   highlightTag: string;
 }
 
+export const TESTIMONIALS_HEADER = {
+  badge: "Colleague Endorsements",
+  title: "What Colleagues Say",
+  subtitle:
+    "Endorsements from tech leads, teammates, and cross-functional collaborators I've built with",
+  verifiedTitle: "Verified Colleague",
+  linkedinCta: "Endorse or Connect on LinkedIn",
+};
+
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
   {
     id: 1,
-    name: "Pradeep Kumar",
-    role: "SE 2",
-    company: "Tekion Corp",
-    initials: "PK",
-    avatarBg: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-    relationship: "Collaborated on Enterprise Mobile Apps",
-    content:
-      "Rajarathinam is an exceptionally dependable engineer. His work on our Flutter mobile applications drastically improved load times and reliability across complex modules. He combines sharp technical execution with great product intuition.",
-    highlightTag: "Flutter , Dart",
-  },
-  {
-    id: 2,
-    name: "Bhaskar Mavuri",
-    role: "Senior Software Engineer",
-    company: "Virtusa",
-    initials: "BM",
-    avatarBg: "linear-gradient(135deg, #0284C7, #0369A1)",
-    relationship: "Collaborated on Web Applications",
-    content:
-      "Working with Rajarathinam on frontend architecture and enterprise web apps was a seamless experience. He writes clean, robust code, handles complex routing and authentication with precision, and has a knack for dissecting tricky architectural challenges under pressure.",
-    highlightTag: "React , TypeScript",
-  },
-  {
-    id: 3,
     name: "Sivakumar MN",
     role: "Product Engineer",
     company: "Fibonalabs",
@@ -360,7 +573,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     highlightTag: "Frontend & UI/UX",
   },
   {
-    id: 4,
+    id: 2,
     name: "Ananya S",
     role: "Junior Engineer",
     company: "Calibraint",
@@ -370,6 +583,18 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     content:
       "You were not only a colleague to me, but also you thought me how to think, how to approach problems. You were a senior but you helped me even in small doubts without any hesitation. I still tell members abt you, how you were standing with me even in tough situation of our project. And even if we apart ways for our future career, you gave me the comfort to reach out to you whenever I need any help from you. I'm happy that I got to work with one of the best persons with kind personality✨",
     highlightTag: "Mobile Applications",
+  },
+  {
+    id: 3,
+    name: "Pradeep Kumar",
+    role: "SE 2",
+    company: "Tekion Corp",
+    initials: "PK",
+    avatarBg: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+    relationship: "Collaborated on Enterprise Mobile Apps",
+    content:
+      "Rajarathinam is an exceptionally dependable engineer. His work on our Flutter mobile applications drastically improved load times and reliability across complex modules. He combines sharp technical execution with great product intuition.",
+    highlightTag: "Flutter , Dart",
   },
 ];
 
@@ -385,13 +610,20 @@ export interface AwardItem {
   animation: any;
 }
 
+export const AWARDS_HEADER = {
+  badge: "Recognition",
+  title: "Honors & Key Achievements",
+  subtitle:
+    "Milestones and acknowledgments earned across professional tenures",
+};
+
 export const AWARDS_DATA: AwardItem[] = [
   {
     title: "Top Contributor In NADA 2024 Awarded With Cash Prize",
     category: "Tekion Corp",
     author: "Hackathon & Innovation Excellence",
     date: "2024",
-    bgColor: "#0A1128",
+    bgColor: "#121622",
     animation: trophyAnimation,
   },
   {
@@ -411,9 +643,17 @@ export const FOOTER_DATA = {
   connectTitle: "Let's Connect",
   connectSubtitle:
     "Have a project in mind, an open role, or just want to chat tech? Feel free to reach out.",
+  emailMeCta: "Email Me",
   brandDesc:
     "Software Engineer specializing in React, Go, and Flutter. Building reliable, scalable microservices and high-performance applications.",
+  quickMsgTitle: "Send a Quick Message",
+  quickMsgDesc:
+    "Type a quick note and hit send to reach my inbox directly.",
   quickMsgPlaceholder: "What would you like to build?",
   quickMsgSubject: "Project Inquiry / Hello",
   opportunitySubject: "Opportunity Discussion",
+  navSectionTitle: "Navigation",
+  contactSectionTitle: "Direct Contact",
+  downloadCvText: "Download CV",
+  rightsReserved: "All Rights Reserved.",
 };

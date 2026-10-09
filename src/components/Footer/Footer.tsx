@@ -29,7 +29,7 @@ export const Footer = () => {
               window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(FOOTER_DATA.opportunitySubject)}`;
             }}
           >
-            Email Me
+            {FOOTER_DATA.emailMeCta}
           </Button>
         </div>
 
@@ -117,7 +117,7 @@ export const Footer = () => {
 
           <div className="footer-links">
             <div className="link-group">
-              <h4 className="link-title">Navigation</h4>
+              <h4 className="link-title">{FOOTER_DATA.navSectionTitle}</h4>
               <ul>
                 <li>
                   <a href="#home">Home</a>
@@ -137,14 +137,14 @@ export const Footer = () => {
                     download={PERSONAL_INFO.resumeDownloadName}
                     className="footer-resume-link"
                   >
-                    Download CV
+                    {FOOTER_DATA.downloadCvText}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div className="link-group">
-              <h4 className="link-title">Direct Contact</h4>
+              <h4 className="link-title">{FOOTER_DATA.contactSectionTitle}</h4>
               <ul>
                 <li>
                   <a
@@ -168,9 +168,9 @@ export const Footer = () => {
           </div>
 
           <div className="footer-newsletter">
-            <h4 className="link-title">Send a Quick Message</h4>
+            <h4 className="link-title">{FOOTER_DATA.quickMsgTitle}</h4>
             <p className="footer-quick-desc">
-              Type a quick note and hit send to reach my inbox directly.
+              {FOOTER_DATA.quickMsgDesc}
             </p>
             <form
               onSubmit={handleSendQuickMsg}
@@ -205,8 +205,7 @@ export const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} {PERSONAL_INFO.fullName}. All Rights
-            Reserved.
+            © {new Date().getFullYear()} {PERSONAL_INFO.fullName}. {FOOTER_DATA.rightsReserved}
           </p>
         </div>
       </div>

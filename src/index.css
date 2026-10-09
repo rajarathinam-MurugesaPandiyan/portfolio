@@ -1,19 +1,124 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 
-:root {
-  --bg-light: #f8fafc; /* Clean Slate Porcelain */
-  --bg-dark: #0a1128; /* Executive Midnight Navy */
-  --bg-darker: #060a17; /* Abyssal Deep Navy */
-  --primary: #FB7D45; /* Vibrant Orange */
-  --primary-hover: #E66A35; /* Deep Orange Hover */
-  --primary-rgb: 251, 125, 69; /* RGB for translucent overlays & glows */
-  --text-dark: #0b132b; /* Deep Navy-Black text */
-  --text-light: #ffffff;
-  --text-muted: #64748b; /* Professional Slate */
-  --border-color: #e2e8f0; /* Clean Slate border */
-  --border-dark: #1c2541; /* Executive Navy border */
+/* ==========================================================================
+   THEME 1: ELECTRIC CYAN & SYSTEMS SLATE (Default)
+   ========================================================================== */
+:root,
+html[data-theme="electric-cyan"] {
+  --bg-main: #0B0F19;
+  --bg-light: #0B0F19;
+  --bg-card: #111827;
+  --bg-card-hover: #1E293B;
+  --bg-dark: #0B0F19;
+  --bg-darker: #060913;
+
+  --primary: #0EA5E9; /* Electric Sky Blue */
+  --primary-hover: #0284C7;
+  --primary-rgb: 14, 165, 233;
+
+  --accent: #06B6D4; /* Electric Cyan */
+  --accent-hover: #0891B2;
+  --accent-rgb: 6, 182, 212;
+
+  --text-dark: #F8FAFC;
+  --text-light: #F8FAFC;
+  --text-muted: #94A3B8;
+
+  --border-color: #1E293B;
+  --border-dark: #1E293B;
 
   --font-family: "Outfit", sans-serif;
+
+  /* Aliases for universal compatibility */
+  --primary-color: var(--primary);
+  --primary-glow: rgba(var(--primary-rgb), 0.35);
+  --accent-color: var(--accent);
+  --bg-color: var(--bg-main);
+  --card-bg: var(--bg-card);
+  --text-color: var(--text-dark);
+  --muted-text: var(--text-muted);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   THEME 2: AMBER EMBER & STUDIO NOIR (Matches Portrait Photo)
+   ========================================================================== */
+html[data-theme="amber-ember"] {
+  --bg-main: #0E121B;
+  --bg-light: #0E121B;
+  --bg-card: #151B27;
+  --bg-card-hover: #1F2737;
+  --bg-dark: #0E121B;
+  --bg-darker: #080B12;
+
+  --primary: #EA580C; /* Warm Ember */
+  --primary-hover: #C2410C;
+  --primary-rgb: 234, 88, 12;
+
+  --accent: #F59E0B; /* Honey Amber */
+  --accent-hover: #D97706;
+  --accent-rgb: 245, 158, 11;
+
+  --text-dark: #F9FAFB;
+  --text-light: #F9FAFB;
+  --text-muted: #9CA3AF;
+
+  --border-color: #1F2737;
+  --border-dark: #1F2737;
+}
+
+/* ==========================================================================
+   THEME 3: EMERALD TERMINAL & DEEP VOID (Fintech & Reliability)
+   ========================================================================== */
+html[data-theme="emerald-matrix"] {
+  --bg-main: #090D12;
+  --bg-light: #090D12;
+  --bg-card: #111720;
+  --bg-card-hover: #1B2432;
+  --bg-dark: #090D12;
+  --bg-darker: #05080C;
+
+  --primary: #10B981; /* Vibrant Emerald */
+  --primary-hover: #059669;
+  --primary-rgb: 16, 185, 129;
+
+  --accent: #34D399; /* Mint Green */
+  --accent-hover: #10B981;
+  --accent-rgb: 52, 211, 153;
+
+  --text-dark: #F9FAFB;
+  --text-light: #F9FAFB;
+  --text-muted: #8B949E;
+
+  --border-color: #1B2432;
+  --border-dark: #1B2432;
+}
+
+/* ==========================================================================
+   THEME 4: LINEAR INDIGO & CYBER VIOLET (Modern Product)
+   ========================================================================== */
+html[data-theme="linear-indigo"] {
+  --bg-main: #0A0B12;
+  --bg-light: #0A0B12;
+  --bg-card: #121320;
+  --bg-card-hover: #1E2038;
+  --bg-dark: #0A0B12;
+  --bg-darker: #06070C;
+
+  --primary: #6366F1; /* Electric Indigo */
+  --primary-hover: #4F46E5;
+  --primary-rgb: 99, 102, 241;
+
+  --accent: #A855F7; /* Cyber Violet */
+  --accent-hover: #9333EA;
+  --accent-rgb: 168, 85, 247;
+
+  --text-dark: #F8FAFC;
+  --text-light: #F8FAFC;
+  --text-muted: #94A3B8;
+
+  --border-color: #1E2038;
+  --border-dark: #1E2038;
 }
 
 * {
@@ -24,11 +129,14 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-light);
+  background-color: var(--bg-main);
   color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 a {
@@ -50,3 +158,14 @@ img {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+.highlight-orange {
+  color: var(--primary);
+  transition: color 0.35s ease;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+

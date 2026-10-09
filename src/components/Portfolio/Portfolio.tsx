@@ -5,6 +5,8 @@ import { Testimonials } from "../Testimonials/Testimonials";
 import { Player } from "@lottiefiles/react-lottie-player";
 import {
   AWARDS_DATA,
+  AWARDS_HEADER,
+  PORTFOLIO_HEADER,
   PROJECT_CATEGORIES,
   PERSONAL_INFO,
 } from "../../constants";
@@ -15,12 +17,15 @@ export const Portfolio = () => {
     <section className="portfolio-section" id="project">
       <div className="container">
         <div className="portfolio-header-container">
-          <SectionHeader title="Featured" highlight="Engineering Projects" />
+          <SectionHeader
+            title={PORTFOLIO_HEADER.title}
+            highlight={PORTFOLIO_HEADER.highlight}
+          />
           <Button
             variant="primary"
             onClick={() => window.open(PERSONAL_INFO.githubUrl, "_blank")}
           >
-            GitHub Projects
+            {PORTFOLIO_HEADER.ctaButtonText}
           </Button>
         </div>
 
@@ -50,28 +55,17 @@ export const Portfolio = () => {
               <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34" />
               <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
             </svg>
-            <span>Recognition</span>
+            <span>{AWARDS_HEADER.badge}</span>
           </div>
-          <h3 className="awards-title">Honors & Key Achievements</h3>
-          <p className="awards-subtitle">
-            Milestones and acknowledgments earned across professional tenures
-          </p>
+          <h3 className="awards-title">{AWARDS_HEADER.title}</h3>
+          <p className="awards-subtitle">{AWARDS_HEADER.subtitle}</p>
         </div>
 
         {/* Awards grid */}
         <div className="projects-grid awards-grid">
           {AWARDS_DATA.map((award, idx) => (
             <div className="project-card award-card" key={idx}>
-              <div
-                className="project-image award-image"
-                style={{
-                  backgroundColor: award.bgColor,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  position: "relative",
-                }}
-              >
+              <div className="project-image award-image">
                 <div style={{ width: "65%", height: "65%" }}>
                   <Player
                     autoplay

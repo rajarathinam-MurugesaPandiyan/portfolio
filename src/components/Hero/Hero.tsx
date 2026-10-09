@@ -55,7 +55,7 @@ export const Hero = () => {
               }}
             >
               <span className="btn-status-dot"></span>
-              <span>View Projects</span>
+              <span>{HERO_DATA.ctaProjects}</span>
             </Button>
             <Button
               variant="outline"
@@ -66,7 +66,7 @@ export const Hero = () => {
                 link.click();
               }}
             >
-              Download CV
+              {HERO_DATA.ctaResume}
             </Button>
           </div>
 
@@ -76,7 +76,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-pill"
-              title="GitHub Profile"
+              title={HERO_DATA.githubTitle}
             >
               <svg
                 width="16"
@@ -93,7 +93,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-pill"
-              title="LinkedIn Profile"
+              title={HERO_DATA.linkedinTitle}
             >
               <svg
                 width="15"
@@ -110,7 +110,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hero-social-pill"
-              title="YouTube Channel"
+              title={HERO_DATA.youtubeTitle}
             >
               <svg
                 width="16"

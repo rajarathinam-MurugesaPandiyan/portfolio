@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { TESTIMONIALS_DATA, PERSONAL_INFO } from "../../constants";
+import {
+  TESTIMONIALS_DATA,
+  TESTIMONIALS_HEADER,
+  PERSONAL_INFO,
+} from "../../constants";
 import "./Testimonials.css";
 
 export const Testimonials: React.FC = () => {
@@ -22,13 +26,10 @@ export const Testimonials: React.FC = () => {
           >
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
-          <span>Colleague Endorsements</span>
+          <span>{TESTIMONIALS_HEADER.badge}</span>
         </div>
-        <h3 className="testimonials-title">What Colleagues Say</h3>
-        <p className="testimonials-subtitle">
-          Endorsements from tech leads, teammates, and cross-functional
-          collaborators I've built with
-        </p>
+        <h3 className="testimonials-title">{TESTIMONIALS_HEADER.title}</h3>
+        <p className="testimonials-subtitle">{TESTIMONIALS_HEADER.subtitle}</p>
       </div>
 
       <div className="testimonials-grid">
@@ -58,7 +59,10 @@ export const Testimonials: React.FC = () => {
               <div className="testimonial-author-info">
                 <div className="testimonial-name-row">
                   <h4 className="testimonial-name">{item.name}</h4>
-                  <span className="verified-badge" title="Verified Colleague">
+                  <span
+                    className="verified-badge"
+                    title={TESTIMONIALS_HEADER.verifiedTitle}
+                  >
                     ✓
                   </span>
                 </div>
@@ -84,7 +88,7 @@ export const Testimonials: React.FC = () => {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
           </svg>
-          <span>Endorse or Connect on LinkedIn</span>
+          <span>{TESTIMONIALS_HEADER.linkedinCta}</span>
         </a>
       </div>
     </div>

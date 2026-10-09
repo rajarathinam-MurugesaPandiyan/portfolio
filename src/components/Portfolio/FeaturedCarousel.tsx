@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FEATURED_SLIDES } from "../../constants";
+import { FEATURED_SLIDES, CAROUSEL_CONSTANTS } from "../../constants";
 
 interface FeaturedCarouselProps {
   categories: string[];
@@ -78,16 +78,10 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
 
   return (
     <div className="featured-project">
-      <div
-        className="featured-project-card"
-        style={{
-          backgroundColor: activeSlide.bgColor,
-          transition: "background-color 0.5s ease",
-        }}
-      >
+      <div className="featured-project-card">
         <div className="card-content-overlay">
           <div className="card-top-badges">
-            <span className="featured-badge">Featured Case Study</span>
+            <span className="featured-badge">{CAROUSEL_CONSTANTS.badgeText}</span>
             <span
               className={`project-status-badge ${statusClass}`}
               data-testid="carousel-card-status"
@@ -96,13 +90,7 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
               <span>{activeSlide.statusBadge}</span>
             </span>
           </div>
-          <h2
-            className="lirante-title"
-            style={{
-              color: activeSlide.textColor,
-              transition: "color 0.5s ease",
-            }}
-          >
+          <h2 className="lirante-title">
             {activeSlide.title}
           </h2>
           <div className="carousel-slide-tags">
@@ -161,8 +149,8 @@ export const FeaturedCarousel = ({ categories }: FeaturedCarouselProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="arrow-badge"
-              title="View Project on GitHub"
-              aria-label="View Project on GitHub"
+              title={CAROUSEL_CONSTANTS.viewGithubTitle}
+              aria-label={CAROUSEL_CONSTANTS.viewGithubTitle}
             >
               <svg
                 width="15"

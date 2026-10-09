@@ -6,6 +6,13 @@
   font-size: 48px;
   font-weight: 600;
   line-height: 1.2;
+  color: var(--text-dark);
+  transition: color 0.35s ease;
+}
+
+.highlight-orange {
+  color: var(--primary);
+  transition: color 0.35s ease;
 }
 
 .section-subtitle {
@@ -13,6 +20,7 @@
   color: var(--text-muted);
   margin-top: 16px;
   max-width: 500px;
+  transition: color 0.35s ease;
 }
 
 .theme-dark .section-title {
@@ -20,7 +28,7 @@
 }
 
 .theme-dark .section-subtitle {
-  color: #aaaaaa;
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
