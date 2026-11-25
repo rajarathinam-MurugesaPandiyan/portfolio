@@ -4,7 +4,6 @@
   border-radius: 20px;
   padding: 24px;
   transition: all 0.3s ease;
-  cursor: pointer;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -19,9 +18,9 @@
 
 .service-title {
   color: var(--text-light);
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
   transition: color 0.35s ease;
 }
 
@@ -30,9 +29,9 @@
   background-color: var(--bg-main);
   border-radius: 12px;
   padding: 16px;
-  height: 200px;
+  min-height: 185px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   border: 1px solid var(--border-color);
   transition: all 0.35s ease;
@@ -44,7 +43,6 @@
 
 .mock-window {
   width: 100%;
-  height: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -54,8 +52,27 @@
 }
 
 .description {
-  padding: 20px;
+  padding: 16px 20px 12px;
   color: var(--text-muted);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.service-deliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 16px;
+}
+
+.service-deliverable-pill {
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(var(--primary-rgb), 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
 }
 
 .mock-header {

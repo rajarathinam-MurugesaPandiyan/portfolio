@@ -8,9 +8,12 @@ class MockIntersectionObserver {
   unobserve = vi.fn();
   disconnect = vi.fn();
   takeRecords = vi.fn();
-  callback: any;
-  options: any;
-  constructor(callback: any, options: any) {
+  callback: IntersectionObserverCallback;
+  options?: IntersectionObserverInit;
+  constructor(
+    callback: IntersectionObserverCallback,
+    options?: IntersectionObserverInit,
+  ) {
     this.callback = callback;
     this.options = options;
   }
@@ -33,6 +36,19 @@ Element.prototype.scrollIntoView = vi.fn();
 
 // Mock @lottiefiles/react-lottie-player
 vi.mock("@lottiefiles/react-lottie-player", () => ({
-  Player: ({ autoplay, loop, src, ...rest }: any) =>
-    React.createElement("div", { "data-testid": "lottie-player", ...rest }),
+  Player: ({
+    className,
+    style,
+  }: {
+    autoplay?: boolean;
+    loop?: boolean;
+    src?: unknown;
+    className?: string;
+    style?: React.CSSProperties;
+  }) =>
+    React.createElement("div", {
+      "data-testid": "lottie-player",
+      className,
+      style,
+    }),
 }));

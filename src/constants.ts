@@ -82,6 +82,8 @@ export const HEADER_DATA = {
 // ============================================================================
 export const HERO_DATA = {
   badge: "Hello!",
+  founderChipText: "Founder of Cinder UI",
+  founderChipSubtext: "Open-Source React Design System",
   titlePrefix: "I'm",
   highlightName: "Rajarathinam",
   role: "Software Engineer",
@@ -107,13 +109,14 @@ export interface ServiceItem {
   title: string;
   description: string;
   icon: string;
+  deliverables?: string[];
 }
 
 export const SERVICES_HEADER = {
   title: "My",
   highlight: "Services",
   subtitle:
-    "Full-stack developer specializing in React, Flutter, and Go. I build scalable web and mobile apps with clean architecture, high performance, and seamless user experiences.",
+    "Full-stack engineer and open-source creator specializing in React design systems, Go microservices, and Flutter mobile apps with clean architecture and accessible UX.",
 };
 
 export const SERVICES_LIST: ServiceItem[] = [
@@ -122,18 +125,28 @@ export const SERVICES_LIST: ServiceItem[] = [
     description:
       "Building fast, scalable, and responsive web apps using React, Next.js, and modern UI/UX practices for seamless user experiences.",
     icon: "layout",
+    deliverables: ["React & TypeScript", "Routing & Auth", "Core Web Vitals"],
+  },
+  {
+    title: "Design Systems & UI Engineering",
+    description:
+      "Architecting accessible, token-driven React component libraries like Cinder UI with zero-runtime CSS variables, keyboard ergonomics, and strict TypeScript APIs.",
+    icon: "layers",
+    deliverables: ["Cinder Slate Tokens", "WCAG Primitives", "Component Kits"],
   },
   {
     title: "Backend Development",
     description:
       "Designing high-performance APIs and systems using Go, focusing on scalability, security, and efficient data handling.",
     icon: "server",
+    deliverables: ["Go Microservices", "REST & Kafka", "PostgreSQL"],
   },
   {
     title: "Mobile App Development",
     description:
       "Creating cross-platform mobile apps with Flutter, delivering smooth performance and native-like user experiences.",
     icon: "smartphone",
+    deliverables: ["Flutter & Dart", "Biometrics & Offline", "60fps UI"],
   },
 ];
 
@@ -264,6 +277,20 @@ export const TECH_STACK_ITEMS: TechItem[] = [
     description:
       "Enterprise SPA workflows, OAuth2 auth guards, custom hooks & design systems.",
     tags: ["Custom Hooks", "Context API", "React Router", "Vite SPAs"],
+    featured: true,
+  },
+  {
+    id: "cinder-ui",
+    name: "Design Systems & Cinder UI",
+    category: "framework",
+    categoryLabel: "UI Architecture",
+    iconType: "svg",
+    svgIcon: "layers",
+    level: "Founder & Author",
+    experience: "Open Source",
+    description:
+      "Token-driven React component library (50+ primitives), headless accessibility, zero-runtime CSS theming & IconForge.",
+    tags: ["Cinder Slate", "CSS Tokens", "WCAG A11y", "Headless UI"],
     featured: true,
   },
   {
@@ -436,14 +463,72 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
 ];
 
 // ============================================================================
-// 7. FEATURED PROJECTS & CAROUSEL COMPONENT
+// 7. FEATURED PROJECTS, OPEN-SOURCE SPOTLIGHT & CAROUSEL COMPONENT
 // ============================================================================
 export type ProjectStatus = "Live" | "In Progress" | "Under Development";
+
+export interface OpenSourceSpotlight {
+  badge: string;
+  roleBadge: string;
+  versionBadge: string;
+  licenseBadge: string;
+  name: string;
+  packageName: string;
+  tagline: string;
+  description: string;
+  installCommand: string;
+  liveUrl: string;
+  githubUrl: string;
+  npmUrl: string;
+  iconforgeUrl: string;
+  highlights: { value: string; label: string }[];
+  architectureTags: string[];
+  previewPrimitives: string[];
+}
+
+export const OPEN_SOURCE_SPOTLIGHT: OpenSourceSpotlight = {
+  badge: "Founded Open-Source Project",
+  roleBadge: "Founder & Lead Architect",
+  versionBadge: "v0.1.1 Live",
+  licenseBadge: "MIT License",
+  name: "Cinder UI",
+  packageName: "@tec-triad/cinder-ui",
+  tagline: "High-Performance React Component Library & Design System",
+  description:
+    "Founded and architected under Tectriad, Cinder UI delivers 50+ accessible React primitives, zero-runtime CSS design tokens in Cinder Slate (dark & light duality), strict polymorphic TypeScript APIs, and the companion IconForge 1,000+ vector icon suite.",
+  installCommand: "npm install @tec-triad/cinder-ui @tec-triad/iconforge-react",
+  liveUrl: "https://cinderui.tectriad.in/",
+  githubUrl: "https://github.com/Tectriad/cinder",
+  npmUrl: "https://www.npmjs.com/package/@tec-triad/cinder-ui",
+  iconforgeUrl: "https://www.npmjs.com/package/@tec-triad/iconforge-react",
+  highlights: [
+    { value: "50+", label: "React Primitives" },
+    { value: "1,000+", label: "IconForge Vectors" },
+    { value: "0ms", label: "Runtime CSS-in-JS" },
+  ],
+  architectureTags: [
+    "React 19",
+    "TypeScript",
+    "Cinder Slate Tokens",
+    "Dual ESM / CJS",
+    "WCAG A11y",
+    "IconForge",
+  ],
+  previewPrimitives: [
+    "Data Grid & Table",
+    "FormBuilder",
+    "Code & JSON Editors",
+    "Modal & Drawer",
+    "Date & Time Pickers",
+    "MultiSelectPro",
+  ],
+};
 
 export interface ProjectSlide {
   id: number;
   title: string;
   subtitle: string;
+  role?: string;
   description: string;
   status: ProjectStatus;
   statusBadge: string;
@@ -451,6 +536,8 @@ export interface ProjectSlide {
   textColor: string;
   tags: string[];
   githubUrl: string;
+  liveUrl?: string;
+  npmUrl?: string;
 }
 
 export const PORTFOLIO_HEADER = {
@@ -462,9 +549,12 @@ export const PORTFOLIO_HEADER = {
 export const CAROUSEL_CONSTANTS = {
   badgeText: "Featured Case Study",
   viewGithubTitle: "View Project on GitHub",
+  viewLiveTitle: "Visit Live Site",
+  viewNpmTitle: "View Package on npm",
 };
 
 export const PROJECT_CATEGORIES: string[] = [
+  "Design Systems & Open Source",
   "React & Web Apps",
   "Go & Scalable Systems",
   "Flutter Apps",
@@ -476,6 +566,29 @@ export const PROJECT_CATEGORIES: string[] = [
 export const FEATURED_SLIDES: ProjectSlide[] = [
   {
     id: 1,
+    title: "Cinder UI",
+    subtitle: "Cinder UI - Open-Source React Design System & Component Library",
+    role: "Founder & Lead Architect",
+    description:
+      "Founded and architected an enterprise-grade React component library featuring 50+ accessible primitives, zero-runtime Cinder Slate design tokens with dark/light duality, dual ESM/CJS builds, and the companion IconForge 1,000+ vector icon engine.",
+    status: "Live",
+    statusBadge: "Live • v0.1.1 Open Source",
+    bgColor: "#09090B",
+    textColor: "#3B82F6",
+    tags: [
+      "Open Source",
+      "Design System",
+      "React",
+      "TypeScript",
+      "UI/UX",
+      "CSS Tokens",
+    ],
+    liveUrl: "https://cinderui.tectriad.in/",
+    githubUrl: "https://github.com/Tectriad/cinder",
+    npmUrl: "https://www.npmjs.com/package/@tec-triad/cinder-ui",
+  },
+  {
+    id: 2,
     title: "Xpense Cloud Mobile",
     subtitle: "Xpense Cloud - Mobile App using Flutter",
     description:
@@ -495,7 +608,7 @@ export const FEATURED_SLIDES: ProjectSlide[] = [
     githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan",
   },
   {
-    id: 2,
+    id: 3,
     title: "Xpense Cloud Backend",
     subtitle: "Xpense Cloud - Backend Services using Go",
     description:
@@ -505,10 +618,11 @@ export const FEATURED_SLIDES: ProjectSlide[] = [
     bgColor: "#111827",
     textColor: "#00ADD8",
     tags: ["Go", "PostgreSQL", "REST API", "Docker", "Microservices", "Revamp"],
-    githubUrl: "https://dev.xpense-cloud.in/ping",
+    githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan",
+    liveUrl: "https://dev.xpense-cloud.in/ping",
   },
   {
-    id: 3,
+    id: 4,
     title: "Xpense",
     subtitle: "Xpense - Personal Finance & Expense Tracker",
     description:
@@ -518,10 +632,11 @@ export const FEATURED_SLIDES: ProjectSlide[] = [
     bgColor: "#1E293B",
     textColor: "#38BDF8",
     tags: ["React", "TypeScript"],
-    githubUrl: "https://xpense-cloud.in/",
+    githubUrl: "https://github.com/rajarathinam-MurugesaPandiyan",
+    liveUrl: "https://xpense-cloud.in/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Campus Desk",
     subtitle: "Campus Desk - School ERP Management System",
     description:
@@ -607,7 +722,7 @@ export interface AwardItem {
   author: string;
   date: string;
   bgColor: string;
-  animation: any;
+  animation: object;
 }
 
 export const AWARDS_HEADER = {

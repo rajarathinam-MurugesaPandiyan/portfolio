@@ -204,7 +204,12 @@
   gap: 16px;
   position: relative;
   z-index: 1;
-  animation: techGridFadeIn 0.3s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tech-grid {
+    animation: techGridFadeIn 0.3s ease;
+  }
 }
 
 @keyframes techGridFadeIn {

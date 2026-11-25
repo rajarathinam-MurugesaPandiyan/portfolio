@@ -22,6 +22,7 @@ export const Services = () => {
               key={index}
               title={service.title}
               description={service.description}
+              deliverables={service.deliverables}
             />
           ))}
         </div>

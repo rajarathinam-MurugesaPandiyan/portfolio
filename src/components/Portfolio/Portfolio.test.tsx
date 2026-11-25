@@ -49,4 +49,31 @@ describe("Portfolio Component", () => {
     const lottiePlayers = screen.getAllByTestId("lottie-player");
     expect(lottiePlayers.length).toBe(AWARDS_DATA.length);
   });
+
+  it("renders Cinder UI open-source founder spotlight with live docs, GitHub, and interactive preview", async () => {
+    const user = userEvent.setup();
+    render(<Portfolio />);
+
+    expect(
+      screen.getByText("Founded Open-Source Project"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Cinder UI" }),
+    ).toBeInTheDocument();
+
+    const docsLink = screen.getByRole("link", { name: /explore live docs/i });
+    expect(docsLink).toHaveAttribute("href", "https://cinderui.tectriad.in/");
+
+    const copyBtn = screen.getByRole("button", {
+      name: /copy install command/i,
+    });
+    await user.click(copyBtn);
+    expect(
+      screen.getByRole("button", { name: /install command copied/i }),
+    ).toBeInTheDocument();
+
+    const tokensTab = screen.getByRole("tab", { name: /css tokens/i });
+    await user.click(tokensTab);
+    expect(screen.getByText(/--cinder-primary/i)).toBeInTheDocument();
+  });
 });

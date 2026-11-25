@@ -30,19 +30,19 @@ describe("FeaturedCarousel Component", () => {
     });
     expect(firstCatBtn).toHaveClass("active");
 
-    const secondCatBtn = screen.getByRole("button", {
-      name: PROJECT_CATEGORIES[1],
+    const goCatBtn = screen.getByRole("button", {
+      name: "Go & Scalable Systems",
     });
-    await user.click(secondCatBtn);
-    expect(secondCatBtn).toHaveClass("active");
+    await user.click(goCatBtn);
+    expect(goCatBtn).toHaveClass("active");
     expect(firstCatBtn).not.toHaveClass("active");
   });
 
-  it("allows clicking navigation dots to switch active slide", async () => {
+  it("allows clicking navigation dot buttons to switch active slide", async () => {
     const user = userEvent.setup();
     render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
 
-    const slide2Dot = screen.getByTitle("Slide 2");
+    const slide2Dot = screen.getByRole("button", { name: /go to slide 2/i });
     await user.click(slide2Dot);
 
     const secondSlide = FEATURED_SLIDES[1];
@@ -50,49 +50,78 @@ describe("FeaturedCarousel Component", () => {
       screen.getByRole("heading", { level: 2, name: secondSlide.title }),
     ).toBeInTheDocument();
     expect(screen.getByText(secondSlide.description)).toBeInTheDocument();
+    expect(slide2Dot).toHaveAttribute("aria-current", "true");
   });
 
-  it("renders outbound GitHub link for active slide", () => {
-    render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
-    const link = screen.getByRole("link", { name: /view project on github/i });
-    expect(link).toHaveAttribute("href", FEATURED_SLIDES[0].githubUrl);
-  });
-
-  it("renders status badges on both the card and info section for in-progress projects", () => {
-    render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
-    const cardStatus = screen.getByTestId("carousel-card-status");
-    const infoStatus = screen.getByTestId("carousel-info-status");
-
-    expect(cardStatus).toHaveTextContent(FEATURED_SLIDES[0].statusBadge);
-    expect(cardStatus).toHaveClass("status-in-progress");
-    expect(infoStatus).toHaveTextContent(FEATURED_SLIDES[0].statusBadge);
-    expect(infoStatus).toHaveClass("status-in-progress");
-  });
-
-  it("renders 'Live' status badge when switching to a live project", async () => {
+  it("supports previous, next, and pause/resume auto-rotation controls", async () => {
     const user = userEvent.setup();
     render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
 
-    // Slide 3 is "Xpense Web" which is Live
-    const slide3Dot = screen.getByTitle("Slide 3");
-    await user.click(slide3Dot);
+    const nextBtn = screen.getByRole("button", { name: /next slide/i });
+    const prevBtn = screen.getByRole("button", { name: /previous slide/i });
+    const pauseBtn = screen.getByRole("button", {
+      name: /pause auto-rotation/i,
+    });
+
+    await user.click(nextBtn);
+    expect(
+      screen.getByRole("heading", { level: 2, name: FEATURED_SLIDES[1].title }),
+    ).toBeInTheDocument();
+
+    await user.click(prevBtn);
+    expect(
+      screen.getByRole("heading", { level: 2, name: FEATURED_SLIDES[0].title }),
+    ).toBeInTheDocument();
+
+    await user.click(pauseBtn);
+    expect(
+      screen.getByRole("button", { name: /resume auto-rotation/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders outbound GitHub, Live Site, and npm links for Cinder UI slide", () => {
+    render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
+    const githubLink = screen.getByRole("link", {
+      name: /view project on github/i,
+    });
+    expect(githubLink).toHaveAttribute("href", FEATURED_SLIDES[0].githubUrl);
+
+    const liveLink = screen.getByRole("link", { name: /visit live site/i });
+    expect(liveLink).toHaveAttribute("href", "https://cinderui.tectriad.in/");
+
+    const npmLink = screen.getByRole("link", { name: /view package on npm/i });
+    expect(npmLink).toHaveAttribute(
+      "href",
+      "https://www.npmjs.com/package/@tec-triad/cinder-ui",
+    );
+  });
+
+  it("renders 'Live' status badge for Cinder UI and 'In Progress' when switching to Xpense Cloud Mobile", async () => {
+    const user = userEvent.setup();
+    render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
 
     const cardStatus = screen.getByTestId("carousel-card-status");
-    expect(cardStatus).toHaveTextContent("Live");
+    const infoStatus = screen.getByTestId("carousel-info-status");
+    expect(cardStatus).toHaveTextContent(FEATURED_SLIDES[0].statusBadge);
     expect(cardStatus).toHaveClass("status-live");
+    expect(infoStatus).toHaveClass("status-live");
+
+    const slide2Dot = screen.getByTitle("Slide 2");
+    await user.click(slide2Dot);
+
+    expect(cardStatus).toHaveTextContent(FEATURED_SLIDES[1].statusBadge);
+    expect(cardStatus).toHaveClass("status-in-progress");
   });
 
   it("switches slides when clicking category pills", async () => {
     const user = userEvent.setup();
     render(<FeaturedCarousel categories={PROJECT_CATEGORIES} />);
 
-    // Click "Go & Scalable Systems" category button
     const goCatBtn = screen.getByRole("button", {
       name: "Go & Scalable Systems",
     });
     await user.click(goCatBtn);
 
-    // Active slide should be a Go project (e.g. Xpense Cloud Backend)
     expect(
       screen.getByRole("heading", {
         level: 2,
@@ -101,32 +130,31 @@ describe("FeaturedCarousel Component", () => {
     ).toBeInTheDocument();
   });
 
-  it("includes both Xpense Cloud mobile app (Flutter) and backend (Go) in slides", () => {
+  it("includes Cinder UI, Xpense Cloud mobile & backend, and Campus Desk in slides", () => {
+    const cinderUi = FEATURED_SLIDES.find((s) => s.title === "Cinder UI");
     const mobileApp = FEATURED_SLIDES.find((s) =>
       s.title.toLowerCase().includes("mobile"),
     );
     const backendApp = FEATURED_SLIDES.find((s) =>
       s.title.toLowerCase().includes("backend"),
     );
-
-    expect(mobileApp).toBeDefined();
-    expect(mobileApp?.tags).toContain("Flutter");
-    expect(mobileApp?.statusBadge).toMatch(/revamp|in progress|under development/i);
-
-    expect(backendApp).toBeDefined();
-    expect(backendApp?.tags).toContain("Go");
-    expect(backendApp?.statusBadge).toMatch(/revamp|in progress|under development/i);
-  });
-
-  it("includes Campus Desk school ERP project with Go and Frontend in slides", () => {
     const campusDesk = FEATURED_SLIDES.find((s) =>
       s.title.toLowerCase().includes("campus desk"),
     );
 
+    expect(cinderUi).toBeDefined();
+    expect(cinderUi?.liveUrl).toBe("https://cinderui.tectriad.in/");
+    expect(cinderUi?.githubUrl).toBe("https://github.com/Tectriad/cinder");
+    expect(cinderUi?.status).toBe("Live");
+
+    expect(mobileApp).toBeDefined();
+    expect(mobileApp?.tags).toContain("Flutter");
+
+    expect(backendApp).toBeDefined();
+    expect(backendApp?.tags).toContain("Go");
+
     expect(campusDesk).toBeDefined();
     expect(campusDesk?.tags).toContain("Go");
     expect(campusDesk?.tags).toContain("Frontend");
-    expect(campusDesk?.status).toBe("Under Development");
-    expect(campusDesk?.statusBadge).toBe("Under Development");
   });
 });

@@ -18,16 +18,18 @@
 }
 
 .header {
-  background-color: rgba(17, 24, 39, 0.85);
+  background-color: var(--bg-card);
+  background-color: color-mix(in oklab, var(--bg-card) 85%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   color: var(--text-light);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 32px;
+  padding: 8px 28px;
   border-radius: 50px;
-  min-width: 800px;
+  width: min(960px, calc(100% - 32px));
+  min-width: 0;
   border: 1px solid var(--border-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition: border-color 0.35s ease, background-color 0.35s ease;

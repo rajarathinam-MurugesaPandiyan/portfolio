@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
 import { Button } from "../Button/Button";
+import { CinderUISpotlight } from "./CinderUISpotlight";
 import { FeaturedCarousel } from "./FeaturedCarousel";
 import { Testimonials } from "../Testimonials/Testimonials";
 import { Player } from "@lottiefiles/react-lottie-player";
 import {
   AWARDS_DATA,
   AWARDS_HEADER,
+  FEATURED_SLIDES,
   PORTFOLIO_HEADER,
   PROJECT_CATEGORIES,
   PERSONAL_INFO,
@@ -13,6 +16,8 @@ import {
 import "./Portfolio.css";
 
 export const Portfolio = () => {
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+
   return (
     <section className="portfolio-section" id="project">
       <div className="container">
@@ -29,8 +34,85 @@ export const Portfolio = () => {
           </Button>
         </div>
 
+        {/* Founded Open-Source Spotlight: Cinder UI */}
+        <CinderUISpotlight />
+
         {/* Large featured project Carousel */}
-        <FeaturedCarousel categories={PROJECT_CATEGORIES} />
+        <FeaturedCarousel
+          categories={PROJECT_CATEGORIES}
+          activeSlideIndex={activeSlideIndex}
+          onSlideChange={setActiveSlideIndex}
+        />
+
+        {/* Scannable Engineering Project Index */}
+        <div className="project-index-header">
+          <h3 className="project-index-title">All Engineering &amp; Open-Source Builds</h3>
+          <p className="project-index-subtitle">
+            Jump directly to any project slide or inspect live deployments and repositories
+          </p>
+        </div>
+        <div className="project-index-grid">
+          {FEATURED_SLIDES.map((project, idx) => {
+            const isSelected = idx === activeSlideIndex;
+            const statusClass =
+              project.status === "Live" ? "status-live" : "status-in-progress";
+
+            return (
+              <article
+                key={project.id}
+                className={`project-index-card ${isSelected ? "selected" : ""}`}
+              >
+                <div className="project-index-top">
+                  <span className={`project-status-pill ${statusClass}`}>
+                    <span className="status-dot" aria-hidden="true"></span>
+                    <span>{project.statusBadge}</span>
+                  </span>
+                  {project.role && (
+                    <span className="project-role-tag">{project.role}</span>
+                  )}
+                </div>
+                <h4 className="project-index-card-title">{project.title}</h4>
+                <p className="project-index-card-desc">{project.description}</p>
+                <div className="project-index-tags">
+                  {project.tags.slice(0, 4).map((tag) => (
+                    <span key={tag} className="project-index-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="project-index-actions">
+                  <button
+                    type="button"
+                    className="project-index-focus-btn"
+                    onClick={() => setActiveSlideIndex(idx)}
+                  >
+                    {isSelected ? "Active in Spotlight" : "Preview in Carousel"}
+                  </button>
+                  <div className="project-index-links">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-index-ext-link"
+                      >
+                        Live
+                      </a>
+                    )}
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-index-ext-link"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
 
         {/* Colleague Testimonials */}
         <Testimonials />

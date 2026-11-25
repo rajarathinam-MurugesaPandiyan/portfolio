@@ -12,12 +12,14 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <Services />
-      <TechStack />
-      <HireMe />
-      <Experience />
-      <Portfolio />
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <Services />
+        <TechStack />
+        <HireMe />
+        <Experience />
+        <Portfolio />
+      </main>
       <Footer />
     </>
   );

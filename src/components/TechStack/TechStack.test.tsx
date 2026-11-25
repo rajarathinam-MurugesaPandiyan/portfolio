@@ -43,6 +43,12 @@ describe("TechStack Component", () => {
       screen.getByRole("heading", { level: 3, name: "React.js" }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole("heading", {
+        level: 3,
+        name: "Design Systems & Cinder UI",
+      }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole("heading", { level: 3, name: "Gin & Go Backend" }),
     ).toBeInTheDocument();
     expect(

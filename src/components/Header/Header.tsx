@@ -44,6 +44,17 @@ export const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setActiveId(id);
@@ -63,6 +74,9 @@ export const Header = () => {
 
   return (
     <div className={`header-wrapper ${scrolled ? "scrolled" : ""}`}>
+      <a href="#main-content" className="skip-link visually-hidden">
+        Skip to main content
+      </a>
       <header className="header">
         <a
           href="#home"
@@ -74,7 +88,7 @@ export const Header = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="nav-right">
+        <nav className="nav-right" aria-label="Primary">
           {NAV_ITEMS.map(({ id, label }) => (
             <a
               key={id}
@@ -115,7 +129,12 @@ export const Header = () => {
       </header>
 
       {/* Mobile Drawer Navigation */}
-      <div className={`mobile-nav-menu ${mobileMenuOpen ? "open" : ""}`}>
+      <nav
+        className={`mobile-nav-menu ${mobileMenuOpen ? "open" : ""}`}
+        aria-label="Mobile"
+        aria-hidden={!mobileMenuOpen}
+        inert={!mobileMenuOpen ? true : undefined}
+      >
         <div className="mobile-nav-links">
           {NAV_ITEMS.map(({ id, label }) => (
             <a
@@ -142,7 +161,7 @@ export const Header = () => {
           </a>
           <ThemeSwitcher isMobile />
         </div>
-      </div>
+      </nav>
     </div>
   );
 };

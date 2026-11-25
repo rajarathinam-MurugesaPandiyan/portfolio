@@ -11,15 +11,15 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
   className = "",
   isMobile = false,
 }) => {
-  const [currentTheme, setCurrentTheme] = useState<ThemeId>("electric-cyan");
+  const [currentTheme, setCurrentTheme] = useState<ThemeId>(() =>
+    getSavedTheme(),
+  );
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const initialTheme = getSavedTheme();
-    setCurrentTheme(initialTheme);
-    applyTheme(initialTheme);
-  }, []);
+    applyTheme(currentTheme);
+  }, [currentTheme]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

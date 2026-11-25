@@ -126,6 +126,9 @@ export const Footer = () => {
                   <a href="#service">Services</a>
                 </li>
                 <li>
+                  <a href="#skills">Skills</a>
+                </li>
+                <li>
                   <a href="#experience">Experience</a>
                 </li>
                 <li>
@@ -176,7 +179,11 @@ export const Footer = () => {
               onSubmit={handleSendQuickMsg}
               className="newsletter-input-group"
             >
+              <label htmlFor="quick-msg-input" className="visually-hidden">
+                {FOOTER_DATA.quickMsgTitle}
+              </label>
               <input
+                id="quick-msg-input"
                 type="text"
                 placeholder={FOOTER_DATA.quickMsgPlaceholder}
                 className="newsletter-input"
