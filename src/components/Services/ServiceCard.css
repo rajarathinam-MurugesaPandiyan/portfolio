@@ -2,39 +2,37 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  padding: 24px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 22px;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: var(--shadow-card);
 }
 
 .service-card:hover {
-  background: var(--bg-card-hover, #1e293b);
   border-color: var(--primary);
-  transform: translateY(-5px);
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(var(--primary-rgb), 0.2);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
 }
 
 .service-title {
-  color: var(--text-light);
-  font-size: 22px;
+  color: var(--text-dark);
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
   font-weight: 600;
-  margin-bottom: 20px;
-  transition: color 0.35s ease;
+  margin-bottom: 16px;
 }
 
-/* Illustration styling */
 .service-illustration {
-  background-color: var(--bg-main);
+  background-color: var(--bg-inset);
   border-radius: 12px;
-  padding: 16px;
-  min-height: 185px;
+  padding: 14px;
+  min-height: 170px;
   display: flex;
   align-items: stretch;
   justify-content: center;
   border: 1px solid var(--border-color);
-  transition: all 0.35s ease;
+  transition: border-color 0.25s ease;
 }
 
 .service-card:hover .service-illustration {
@@ -45,15 +43,16 @@
   width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-light);
+  border-radius: 10px;
+  color: var(--text-dark);
   display: flex;
   flex-direction: column;
 }
 
 .description {
-  padding: 16px 20px 12px;
+  padding: 16px 18px 12px;
   color: var(--text-muted);
+  font-size: 0.94rem;
   line-height: 1.55;
   flex-grow: 1;
 }
@@ -62,23 +61,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0 20px 16px;
+  padding: 0 18px 16px;
 }
 
 .service-deliverable-pill {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  padding: 3px 10px;
+  padding: 4px 10px;
   border-radius: 9999px;
-  background: rgba(var(--primary-rgb), 0.12);
-  color: var(--accent);
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
   border: 1px solid rgba(var(--primary-rgb), 0.25);
 }
 
 .mock-header {
   display: flex;
   gap: 6px;
-  padding: 10px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -95,4 +94,23 @@
 }
 .dot-g {
   background-color: #27c93f;
+}
+
+@media (max-width: 600px) {
+  .service-card {
+    padding: 18px;
+  }
+
+  .service-illustration {
+    padding: 10px;
+    min-height: auto;
+  }
+
+  .description {
+    padding: 14px;
+  }
+
+  .service-deliverables {
+    padding: 0 14px 14px;
+  }
 }

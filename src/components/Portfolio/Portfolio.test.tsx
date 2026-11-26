@@ -76,4 +76,18 @@ describe("Portfolio Component", () => {
     await user.click(tokensTab);
     expect(screen.getByText(/--cinder-primary/i)).toBeInTheDocument();
   });
+
+  it("renders Tectriad co-founder spotlight with link to tectriad.in and ecosystem products", () => {
+    render(<Portfolio />);
+
+    expect(screen.getByText("Co-Founded Organization")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Tectriad" }),
+    ).toBeInTheDocument();
+
+    const tectriadLink = screen.getByRole("link", { name: /visit tectriad/i });
+    expect(tectriadLink).toHaveAttribute("href", "https://tectriad.in/");
+    expect(screen.getByText("Ethics Of Coding")).toBeInTheDocument();
+    expect(screen.getByText("Streako")).toBeInTheDocument();
+  });
 });

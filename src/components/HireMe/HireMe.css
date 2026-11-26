@@ -1,6 +1,5 @@
 .hire-me-section {
-  padding: 40px 0 80px 0;
-  margin-top: 0;
+  padding: 32px 0 64px;
   position: relative;
   z-index: 5;
 }
@@ -8,56 +7,59 @@
 .hire-me-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 40px;
-  padding: 40px 60px;
+  border-radius: 28px;
+  padding: 36px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(var(--primary-rgb), 0.08);
-  transition: all 0.35s ease;
+  gap: 28px;
+  box-shadow: var(--shadow-card);
 }
 
 .stats-group {
   display: flex;
-  gap: 80px;
+  gap: clamp(28px, 5vw, 72px);
 }
 
 .stat-number {
-  font-size: 40px;
-  font-weight: 600;
+  font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.5rem);
+  font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 4px;
-  transition: color 0.35s ease;
 }
 
 .stat-label {
   color: var(--text-muted);
-  font-size: 16px;
-  transition: color 0.35s ease;
+  font-size: 15px;
 }
 
 .hire-me-btn {
-  padding: 16px 40px;
-  font-size: 18px;
-  border-radius: 40px;
+  padding: 14px 34px;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
   .hire-me-section {
-    padding: 24px 0 60px 0;
+    padding: 20px 0 48px;
   }
 
   .hire-me-card {
     flex-direction: column;
-    gap: 40px;
-    padding: 30px;
+    gap: 24px;
+    padding: 24px 20px;
+    border-radius: 20px;
     text-align: center;
   }
 
   .stats-group {
-    flex-direction: column;
-    gap: 30px;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hire-me-action,
+  .hire-me-btn {
+    width: 100%;
   }
 }

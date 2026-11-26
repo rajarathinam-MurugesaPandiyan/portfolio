@@ -49,6 +49,7 @@ export const PERSONAL_INFO = {
   linkedinUrl: "https://www.linkedin.com/in/rajarathinam-murugesapandiyan",
   youtubeUrl: "https://www.youtube.com/channel/UCMuVmUfK1Hu9_zDXvOw5nYw",
   twitterUrl: "https://x.com/RajarathinamMu4",
+  tectriadUrl: "https://tectriad.in/",
   resumeDownloadName: "Rajarathinam_Resume.pdf",
 };
 
@@ -82,6 +83,8 @@ export const HEADER_DATA = {
 // ============================================================================
 export const HERO_DATA = {
   badge: "Hello!",
+  coFounderChipText: "Co-founder of Tectriad",
+  coFounderChipSubtext: "Product Studio & Dev Education",
   founderChipText: "Founder of Cinder UI",
   founderChipSubtext: "Open-Source React Design System",
   titlePrefix: "I'm",
@@ -524,6 +527,69 @@ export const OPEN_SOURCE_SPOTLIGHT: OpenSourceSpotlight = {
   ],
 };
 
+export interface TectriadProduct {
+  name: string;
+  category: string;
+  description: string;
+  url: string;
+}
+
+export interface TectriadSpotlightData {
+  badge: string;
+  roleBadge: string;
+  domainBadge: string;
+  name: string;
+  tagline: string;
+  description: string;
+  liveUrl: string;
+  githubUrl: string;
+  coFoundersNote: string;
+  products: TectriadProduct[];
+}
+
+export const TECTRIAD_DATA: TectriadSpotlightData = {
+  badge: "Co-Founded Organization",
+  roleBadge: "Co-founder & Engineer",
+  domainBadge: "tectriad.in",
+  name: "Tectriad",
+  tagline: "Software Product Studio & Developer Education Collective",
+  description:
+    "Co-founded alongside Gowtham M and Gary A, Tectriad engineers open-source developer tooling and privacy-first consumer software while making architecture approachable through the Ethics Of Coding education initiative.",
+  liveUrl: "https://tectriad.in/",
+  githubUrl: "https://github.com/Tectriad",
+  coFoundersNote: "Co-founded with Gowtham M & Gary A",
+  products: [
+    {
+      name: "Cinder UI",
+      category: "Open-Source UI",
+      description:
+        "50+ accessible React primitives and zero-runtime Cinder Slate tokens.",
+      url: "https://cinderui.tectriad.in/",
+    },
+    {
+      name: "Ethics Of Coding",
+      category: "Dev Education",
+      description:
+        "Clean Architecture, BLoC, Flutter & React tutorials in approachable Tamil.",
+      url: "https://tectriad.in/",
+    },
+    {
+      name: "Xpense Cloud",
+      category: "FinTech Product",
+      description:
+        "Fast personal expense tracking with visual analytics and cloud sync.",
+      url: "https://xpense-cloud.in/",
+    },
+    {
+      name: "Streako",
+      category: "Productivity",
+      description:
+        "Minimal daily habit-tracking app crafted for consistency and focus.",
+      url: "https://tectriad.in/",
+    },
+  ],
+};
+
 export interface ProjectSlide {
   id: number;
   title: string;
@@ -760,7 +826,7 @@ export const FOOTER_DATA = {
     "Have a project in mind, an open role, or just want to chat tech? Feel free to reach out.",
   emailMeCta: "Email Me",
   brandDesc:
-    "Software Engineer specializing in React, Go, and Flutter. Building reliable, scalable microservices and high-performance applications.",
+    "Software Engineer, Co-founder of Tectriad, and Founder of Cinder UI. Building React design systems, reliable Go services, and Flutter applications.",
   quickMsgTitle: "Send a Quick Message",
   quickMsgDesc:
     "Type a quick note and hit send to reach my inbox directly.",

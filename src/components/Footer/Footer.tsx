@@ -165,6 +165,16 @@ export const Footer = () => {
                     {PERSONAL_INFO.phone}
                   </a>
                 </li>
+                <li>
+                  <a
+                    href={PERSONAL_INFO.tectriadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-contact-link"
+                  >
+                    tectriad.in
+                  </a>
+                </li>
                 <li className="footer-location">{PERSONAL_INFO.location}</li>
               </ul>
             </div>

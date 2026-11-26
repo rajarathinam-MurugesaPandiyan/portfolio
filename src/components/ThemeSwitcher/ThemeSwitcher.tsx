@@ -1,5 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { THEMES, getSavedTheme, applyTheme, type ThemeId } from "../../theme";
+import React, { useState, useEffect } from "react";
+import {
+  getSavedTheme,
+  applyTheme,
+  toggleThemePreference,
+  type ThemeId,
+} from "../../theme";
 import "./ThemeSwitcher.css";
 
 interface ThemeSwitcherProps {
@@ -14,198 +19,131 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
   const [currentTheme, setCurrentTheme] = useState<ThemeId>(() =>
     getSavedTheme(),
   );
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     applyTheme(currentTheme);
   }, [currentTheme]);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === "color-scheme") {
+        setCurrentTheme(getSavedTheme());
       }
     };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen]);
-
-  const handleSelectTheme = (themeId: ThemeId) => {
-    setCurrentTheme(themeId);
-    applyTheme(themeId);
-    setIsOpen(false);
+  const handleToggle = () => {
+    const next = toggleThemePreference(currentTheme);
+    setCurrentTheme(next);
   };
 
-  const activeTheme = THEMES.find((t) => t.id === currentTheme) || THEMES[0];
+  const handleSelectExplicit = (target: ThemeId) => {
+    if (target === currentTheme) return;
+    applyTheme(target, true);
+    setCurrentTheme(target);
+  };
+
+  const isDark = currentTheme === "dark";
 
   if (isMobile) {
     return (
       <div className="mobile-theme-switcher">
         <div className="mobile-theme-header">
-          <span className="mobile-theme-label">Theme Palette</span>
-          <span className="mobile-theme-active-name">{activeTheme.name}</span>
+          <span className="mobile-theme-label">Appearance</span>
+          <span className="mobile-theme-active-name">
+            {isDark ? "Dark" : "Light"}
+          </span>
         </div>
-        <div className="mobile-theme-grid">
-          {THEMES.map((theme) => {
-            const isSelected = theme.id === currentTheme;
-            return (
-              <button
-                key={theme.id}
-                type="button"
-                className={`mobile-theme-card ${isSelected ? "active" : ""}`}
-                onClick={() => handleSelectTheme(theme.id)}
-                title={`Switch to ${theme.name}`}
-              >
-                <div className="theme-duotone-preview">
-                  <span
-                    className="theme-dot primary"
-                    style={{ backgroundColor: theme.primaryColor }}
-                  />
-                  <span
-                    className="theme-dot accent"
-                    style={{ backgroundColor: theme.accentColor }}
-                  />
-                </div>
-                <div className="mobile-theme-card-info">
-                  <span className="theme-card-name">{theme.name}</span>
-                  <span className="theme-card-tag">{theme.tag}</span>
-                </div>
-                {isSelected && (
-                  <svg
-                    className="theme-check-icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                )}
-              </button>
-            );
-          })}
+        <div className="mobile-theme-segmented" role="group" aria-label="Theme selection">
+          <button
+            type="button"
+            className={`mobile-theme-seg-btn ${isDark ? "active" : ""}`}
+            aria-pressed={isDark}
+            onClick={() => handleSelectExplicit("dark")}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <span>Dark</span>
+          </button>
+          <button
+            type="button"
+            className={`mobile-theme-seg-btn ${!isDark ? "active" : ""}`}
+            aria-pressed={!isDark}
+            onClick={() => handleSelectExplicit("light")}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <span>Light</span>
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <div ref={containerRef} className={`theme-switcher-wrapper ${className}`}>
-      <button
-        type="button"
-        className={`theme-switcher-trigger ${isOpen ? "open" : ""}`}
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Select theme palette"
-        aria-expanded={isOpen}
-        aria-haspopup="true"
-        title="Change theme palette"
-      >
-        <span className="theme-indicator-duo">
-          <span
-            className="theme-dot primary"
-            style={{ backgroundColor: activeTheme.primaryColor }}
-          />
-          <span
-            className="theme-dot accent"
-            style={{ backgroundColor: activeTheme.accentColor }}
-          />
-        </span>
-        <span className="theme-trigger-label">Theme</span>
+    <button
+      type="button"
+      className={`theme-toggle-pill ${className}`}
+      onClick={handleToggle}
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      title={isDark ? "Switch to Light theme" : "Switch to Dark theme"}
+    >
+      {isDark ? (
         <svg
-          className={`theme-caret ${isOpen ? "open" : ""}`}
-          width="12"
-          height="12"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="2.5"
+          strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          aria-hidden="true"
         >
-          <polyline points="6 9 12 15 18 9" />
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
         </svg>
-      </button>
-
-      {isOpen && (
-        <div
-          className="theme-dropdown-popover"
-          role="dialog"
-          aria-label="Theme options"
+      ) : (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
         >
-          <div className="theme-popover-header">
-            <span className="theme-popover-title">Palette Presets</span>
-            <span className="theme-popover-count">{THEMES.length} Themes</span>
-          </div>
-
-          <div className="theme-options-list" role="listbox">
-            {THEMES.map((theme) => {
-              const isSelected = theme.id === currentTheme;
-              return (
-                <button
-                  key={theme.id}
-                  type="button"
-                  role="option"
-                  aria-selected={isSelected}
-                  className={`theme-option-item ${isSelected ? "selected" : ""}`}
-                  onClick={() => handleSelectTheme(theme.id)}
-                >
-                  <div className="theme-duotone-preview">
-                    <span
-                      className="theme-dot primary"
-                      style={{ backgroundColor: theme.primaryColor }}
-                    />
-                    <span
-                      className="theme-dot accent"
-                      style={{ backgroundColor: theme.accentColor }}
-                    />
-                  </div>
-                  <div className="theme-option-details">
-                    <span className="theme-option-name">{theme.name}</span>
-                    <span className="theme-option-tag">{theme.tag}</span>
-                  </div>
-                  {isSelected && (
-                    <svg
-                      className="theme-check-icon"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
       )}
-    </div>
+      <span>{isDark ? "Light" : "Dark"}</span>
+    </button>
   );
 };

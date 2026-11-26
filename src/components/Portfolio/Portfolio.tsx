@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SectionHeader } from "../SectionHeader/SectionHeader";
 import { Button } from "../Button/Button";
 import { CinderUISpotlight } from "./CinderUISpotlight";
+import { TectriadSpotlight } from "./TectriadSpotlight";
 import { FeaturedCarousel } from "./FeaturedCarousel";
 import { Testimonials } from "../Testimonials/Testimonials";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -36,6 +37,9 @@ export const Portfolio = () => {
 
         {/* Founded Open-Source Spotlight: Cinder UI */}
         <CinderUISpotlight />
+
+        {/* Co-Founded Venture Spotlight: Tectriad */}
+        <TectriadSpotlight />
 
         {/* Large featured project Carousel */}
         <FeaturedCarousel
