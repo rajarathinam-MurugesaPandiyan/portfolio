@@ -9,6 +9,9 @@ describe("App Root Component", () => {
     // Header exists
     expect(container.querySelector("header.header")).toBeInTheDocument();
 
+    // Main landmark exists
+    expect(container.querySelector("main#main-content")).toBeInTheDocument();
+
     // Hero section exists
     expect(container.querySelector("#home")).toBeInTheDocument();
 

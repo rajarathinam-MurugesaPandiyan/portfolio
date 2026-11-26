@@ -61,6 +61,23 @@ const renderFrameworkSvg = (iconName?: string) => {
           <path d="M14.314 0L2.3 12.014l3.696 3.696L21.706 0H14.314zm0 10.428l-5.6 5.6 3.696 3.696 5.6-5.6-3.696-3.696zm7.392 7.393l-3.696-3.696-3.696 3.696 3.696 3.696 3.696-3.696z" />
         </svg>
       );
+    case "layers":
+      return (
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="tech-vector-icon layers-icon"
+          aria-hidden="true"
+        >
+          <polygon points="12 2 2 7 12 12 22 7 12 2" />
+          <polyline points="2 17 12 22 22 17" />
+          <polyline points="2 12 12 17 22 12" />
+        </svg>
+      );
     case "server":
       return (
         <svg
@@ -167,6 +184,26 @@ export const TechStack: React.FC = () => {
       ? TECH_STACK_ITEMS
       : TECH_STACK_ITEMS.filter((item) => item.category === activeTab);
 
+  const handleTabKeyDown = (
+    e: React.KeyboardEvent<HTMLButtonElement>,
+    idx: number,
+  ) => {
+    const count = TECH_STACK_TABS.length;
+    let nextIdx: number | null = null;
+    if (e.key === "ArrowRight") nextIdx = (idx + 1) % count;
+    else if (e.key === "ArrowLeft") nextIdx = (idx - 1 + count) % count;
+    else if (e.key === "Home") nextIdx = 0;
+    else if (e.key === "End") nextIdx = count - 1;
+
+    if (nextIdx !== null) {
+      e.preventDefault();
+      const nextTab = TECH_STACK_TABS[nextIdx];
+      setActiveTab(nextTab.id as TechCategory);
+      const tabEl = document.getElementById(`tech-tab-${nextTab.id}`);
+      tabEl?.focus();
+    }
+  };
+
   return (
     <section className="tech-stack-section" id="skills">
       <div className="container">
@@ -214,7 +251,7 @@ export const TechStack: React.FC = () => {
           role="tablist"
           aria-label="Technology Categories"
         >
-          {TECH_STACK_TABS.map((tab) => {
+          {TECH_STACK_TABS.map((tab, idx) => {
             const count =
               tab.id === "all"
                 ? TECH_STACK_ITEMS.length
@@ -224,11 +261,15 @@ export const TechStack: React.FC = () => {
             return (
               <button
                 key={tab.id}
+                id={`tech-tab-${tab.id}`}
                 role="tab"
                 type="button"
                 aria-selected={isSelected}
+                aria-controls="tech-stack-panel"
+                tabIndex={isSelected ? 0 : -1}
                 className={`tech-tab-btn ${isSelected ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.id as TechCategory)}
+                onKeyDown={(e) => handleTabKeyDown(e, idx)}
               >
                 <span>{tab.label}</span>
                 <span className="tech-tab-count">{count}</span>
@@ -238,7 +279,13 @@ export const TechStack: React.FC = () => {
         </div>
 
         {/* Tech Cards Grid */}
-        <div className="tech-grid" key={activeTab}>
+        <div
+          className="tech-grid"
+          id="tech-stack-panel"
+          role="tabpanel"
+          aria-labelledby={`tech-tab-${activeTab}`}
+          key={activeTab}
+        >
           {filteredItems.map((item) => {
             const isLanguage = item.category === "language";
 

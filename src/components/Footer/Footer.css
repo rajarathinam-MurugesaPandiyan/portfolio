@@ -1,22 +1,21 @@
 .footer-section {
   background-color: var(--bg-darker);
-  color: var(--text-light);
-  padding: 80px 0 30px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  margin-top: -40px;
+  color: var(--text-dark);
+  padding: clamp(48px, 6vw, 80px) 0 calc(28px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border-color);
   position: relative;
   z-index: 5;
-  border-top: 1px solid var(--border-color);
-  transition: background-color 0.35s ease, border-color 0.35s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .footer-connect {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 60px;
-  gap: 30px;
+  margin-bottom: 44px;
+  gap: 24px;
 }
 
 .connect-text-group {
@@ -24,22 +23,20 @@
 }
 
 .connect-title {
-  font-size: 48px;
+  font-size: clamp(1.85rem, 1.4rem + 1.8vw, 2.85rem);
   font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--text-light);
-  transition: color 0.35s ease;
+  margin-bottom: 10px;
+  color: var(--text-dark);
 }
 
 .connect-subtitle {
   color: var(--text-muted);
   font-size: 16px;
-  line-height: 1.5;
-  transition: color 0.35s ease;
+  line-height: 1.55;
 }
 
 .footer-hire-btn {
-  padding: 16px 36px;
+  padding: 14px 32px;
   font-size: 16px;
   white-space: nowrap;
 }
@@ -47,89 +44,86 @@
 .footer-divider {
   height: 1px;
   background-color: var(--border-color);
-  margin-bottom: 60px;
-  transition: background-color 0.35s ease;
+  margin-bottom: 44px;
 }
 
 .footer-main {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 80px;
+  gap: 44px;
+  margin-bottom: 52px;
 }
 
-/* Brand */
 .footer-logo {
-  margin: 0 0 24px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px 0;
 }
 
 .footer-desc {
   color: var(--text-muted);
   line-height: 1.6;
   font-size: 14px;
-  margin-bottom: 24px;
-  transition: color 0.35s ease;
+  margin-bottom: 20px;
 }
 
 .social-links {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .social-icon {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: var(--bg-card);
-  color: var(--text-light);
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .social-icon:hover {
   background-color: var(--primary);
   border-color: var(--primary);
+  color: var(--on-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.35);
 }
 
-/* Links */
 .footer-links {
   display: flex;
-  gap: 60px;
+  gap: 44px;
 }
 
 .link-title {
   color: var(--primary);
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  transition: color 0.35s ease;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
 .link-group ul li {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .link-group ul li a,
 .link-group ul li {
   color: var(--text-muted);
   font-size: 14px;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .link-group ul li a:hover {
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 .footer-contact-link {
   color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  overflow-wrap: anywhere;
 }
 
 .footer-contact-link:hover {
@@ -139,22 +133,19 @@
 .footer-location {
   color: var(--text-muted);
   font-size: 13px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .footer-resume-link {
   color: var(--primary) !important;
   font-weight: 500;
-  transition: color 0.35s ease;
 }
 
-/* Quick Message Form */
 .footer-quick-desc {
   color: var(--text-muted);
   font-size: 13px;
-  margin-bottom: 16px;
-  line-height: 1.4;
-  transition: color 0.35s ease;
+  margin-bottom: 14px;
+  line-height: 1.45;
 }
 
 .newsletter-input-group {
@@ -162,33 +153,41 @@
   background-color: var(--bg-card);
   border-radius: 12px;
   overflow: hidden;
-  height: 48px;
+  min-height: 48px;
   border: 1px solid var(--border-color);
-  transition: all 0.35s ease;
+}
+
+.newsletter-input-group:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.25);
 }
 
 .newsletter-input {
   flex: 1;
+  min-width: 0;
   border: none;
-  padding: 0 16px;
+  padding: 0 14px;
   font-family: inherit;
-  font-size: 14px;
-  outline: none;
+  font-size: 16px;
   background-color: transparent;
-  color: var(--text-light);
+  color: var(--text-dark);
+}
+
+.newsletter-input:focus-visible {
+  outline: none;
 }
 
 .newsletter-submit {
   width: 48px;
+  min-height: 48px;
   background-color: var(--primary);
-  color: white;
+  color: var(--on-primary);
   border: none;
   cursor: pointer;
-  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .newsletter-submit:hover {
@@ -199,26 +198,34 @@
   text-align: center;
   color: var(--text-muted);
   font-size: 14px;
-  padding-top: 30px;
+  padding-top: 24px;
   border-top: 1px solid var(--border-color);
-  transition: border-color 0.35s ease, color 0.35s ease;
 }
 
 @media (max-width: 960px) {
   .footer-main {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .footer-links {
-    gap: 40px;
+    gap: 32px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .footer-connect {
     flex-direction: column;
-    gap: 30px;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .footer-hire-btn {
+    width: 100%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 24px;
   }
 }

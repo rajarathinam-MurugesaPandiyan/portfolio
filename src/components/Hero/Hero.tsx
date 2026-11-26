@@ -15,6 +15,58 @@ export const Hero = () => {
             {HERO_DATA.role}
           </h1>
 
+          <div className="hero-founder-chips">
+            <a
+              href="#tectriad-spotlight"
+              className="hero-founder-chip"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("tectriad-spotlight");
+                if (element) {
+                  const offset = 100;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  window.scrollTo({
+                    top: elementPosition + window.scrollY - offset,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+            >
+              <span className="founder-chip-dot" aria-hidden="true"></span>
+              <span className="founder-chip-text">
+                <strong>{HERO_DATA.coFounderChipText}</strong>
+                <span className="founder-chip-sub">
+                  {HERO_DATA.coFounderChipSubtext}
+                </span>
+              </span>
+            </a>
+
+            <a
+              href="#cinder-ui-spotlight"
+              className="hero-founder-chip"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("cinder-ui-spotlight");
+                if (element) {
+                  const offset = 100;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  window.scrollTo({
+                    top: elementPosition + window.scrollY - offset,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+            >
+              <span className="founder-chip-dot" aria-hidden="true"></span>
+              <span className="founder-chip-text">
+                <strong>{HERO_DATA.founderChipText}</strong>
+                <span className="founder-chip-sub">
+                  {HERO_DATA.founderChipSubtext}
+                </span>
+              </span>
+            </a>
+          </div>
+
           <div className="hero-quote">
             <div className="quote-icon">"</div>
             <p>

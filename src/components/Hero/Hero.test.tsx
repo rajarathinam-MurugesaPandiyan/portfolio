@@ -73,6 +73,12 @@ describe("Hero Component", () => {
     expect(youtubeLink).toHaveAttribute("href", PERSONAL_INFO.youtubeUrl);
   });
 
+  it("renders Co-founder of Tectriad and Founder of Cinder UI badges", () => {
+    render(<Hero />);
+    expect(screen.getByText(HERO_DATA.coFounderChipText)).toBeInTheDocument();
+    expect(screen.getByText(HERO_DATA.founderChipText)).toBeInTheDocument();
+  });
+
   it("renders experience rating and years of experience", () => {
     render(<Hero />);
     expect(screen.getByText(HERO_DATA.experienceStars)).toBeInTheDocument();

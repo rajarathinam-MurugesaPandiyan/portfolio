@@ -1,8 +1,4 @@
-export type ThemeId =
-  | "electric-cyan"
-  | "amber-ember"
-  | "emerald-matrix"
-  | "linear-indigo";
+export type ThemeId = "dark" | "light";
 
 export interface ThemeOption {
   id: ThemeId;
@@ -15,60 +11,95 @@ export interface ThemeOption {
 
 export const THEMES: ThemeOption[] = [
   {
-    id: "electric-cyan",
-    name: "Electric Cyan",
-    tag: "Systems & Cloud",
-    primaryColor: "#0EA5E9",
-    accentColor: "#06B6D4",
-    bgMain: "#0B0F19",
+    id: "dark",
+    name: "Dark",
+    tag: "Obsidian Slate",
+    primaryColor: "#3B82F6",
+    accentColor: "#60A5FA",
+    bgMain: "#09090B",
   },
   {
-    id: "amber-ember",
-    name: "Amber Ember",
-    tag: "Studio Portrait",
-    primaryColor: "#EA580C",
-    accentColor: "#F59E0B",
-    bgMain: "#0E121B",
-  },
-  {
-    id: "emerald-matrix",
-    name: "Emerald Terminal",
-    tag: "Reliability & Uptime",
-    primaryColor: "#10B981",
-    accentColor: "#34D399",
-    bgMain: "#090D12",
-  },
-  {
-    id: "linear-indigo",
-    name: "Linear Indigo",
-    tag: "Modern Product",
-    primaryColor: "#6366F1",
-    accentColor: "#A855F7",
-    bgMain: "#0A0B12",
+    id: "light",
+    name: "Light",
+    tag: "Clean Paper",
+    primaryColor: "#2563EB",
+    accentColor: "#3B82F6",
+    bgMain: "#FAFAFA",
   },
 ];
 
-const THEME_STORAGE_KEY = "rr_portfolio_theme";
+const THEME_STORAGE_KEY = "color-scheme";
 
-export const getSavedTheme = (): ThemeId => {
-  if (typeof window === "undefined") return "electric-cyan";
-  const saved = localStorage.getItem(THEME_STORAGE_KEY) as ThemeId | null;
-  if (saved && THEMES.some((t) => t.id === saved)) {
-    return saved;
+export const getSystemTheme = (): ThemeId => {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return "dark";
   }
-  return "electric-cyan";
+  return window.matchMedia("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark";
 };
 
-export const applyTheme = (themeId: ThemeId) => {
+export const getSavedTheme = (): ThemeId => {
+  if (typeof window === "undefined") return "dark";
+  try {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved === "dark" || saved === "light") {
+      return saved;
+    }
+  } catch {
+    // Ignore storage errors
+  }
+  return getSystemTheme();
+};
+
+export const toggleThemePreference = (currentRendered: ThemeId): ThemeId => {
+  const target: ThemeId = currentRendered === "dark" ? "light" : "dark";
+  const system = getSystemTheme();
+  try {
+    if (target !== system) {
+      localStorage.setItem(THEME_STORAGE_KEY, target);
+    } else {
+      localStorage.removeItem(THEME_STORAGE_KEY);
+    }
+  } catch {
+    // Ignore storage errors
+  }
+  applyTheme(target);
+  return target;
+};
+
+export const applyTheme = (themeId: ThemeId, persist = false) => {
   if (typeof document === "undefined") return;
   document.documentElement.setAttribute("data-theme", themeId);
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, themeId);
-  } catch {
-    // Ignore storage errors in restrictive environments
+
+  if (persist) {
+    const system = getSystemTheme();
+    try {
+      if (themeId !== system) {
+        localStorage.setItem(THEME_STORAGE_KEY, themeId);
+      } else {
+        localStorage.removeItem(THEME_STORAGE_KEY);
+      }
+    } catch {
+      // Ignore storage errors
+    }
   }
 
-  // Update mobile browser chrome bar theme-color
+  let stored: string | null = null;
+  try {
+    stored = localStorage.getItem(THEME_STORAGE_KEY);
+  } catch {
+    // Ignore
+  }
+
+  const metaScheme = document.querySelector('meta[name="color-scheme"]');
+  if (metaScheme) {
+    metaScheme.setAttribute(
+      "content",
+      stored === "dark" || stored === "light" ? stored : "light dark",
+    );
+  }
+
   const activeTheme = THEMES.find((t) => t.id === themeId);
   if (activeTheme) {
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');

@@ -126,6 +126,9 @@ export const Footer = () => {
                   <a href="#service">Services</a>
                 </li>
                 <li>
+                  <a href="#skills">Skills</a>
+                </li>
+                <li>
                   <a href="#experience">Experience</a>
                 </li>
                 <li>
@@ -162,6 +165,16 @@ export const Footer = () => {
                     {PERSONAL_INFO.phone}
                   </a>
                 </li>
+                <li>
+                  <a
+                    href={PERSONAL_INFO.tectriadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-contact-link"
+                  >
+                    tectriad.in
+                  </a>
+                </li>
                 <li className="footer-location">{PERSONAL_INFO.location}</li>
               </ul>
             </div>
@@ -176,7 +189,11 @@ export const Footer = () => {
               onSubmit={handleSendQuickMsg}
               className="newsletter-input-group"
             >
+              <label htmlFor="quick-msg-input" className="visually-hidden">
+                {FOOTER_DATA.quickMsgTitle}
+              </label>
               <input
+                id="quick-msg-input"
                 type="text"
                 placeholder={FOOTER_DATA.quickMsgPlaceholder}
                 className="newsletter-input"

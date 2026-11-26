@@ -6,6 +6,7 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   hasArrow?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button = ({
@@ -14,9 +15,14 @@ export const Button = ({
   onClick,
   className = "",
   hasArrow = false,
+  type = "button",
 }: ButtonProps) => {
   return (
-    <button className={`btn btn-${variant} ${className}`} onClick={onClick}>
+    <button
+      type={type}
+      className={`btn btn-${variant} ${className}`}
+      onClick={onClick}
+    >
       {children}
       {hasArrow && (
         <svg
